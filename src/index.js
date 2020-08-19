@@ -1,11 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "bootstrap/dist/css/bootstrap.css";
+import Jewellery from './components/Home.jsx';
 
-
-ReactDOM.render(
-  <React.StrictMode>
-
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
+ReactDOM.render(<Jewellery/>, document.getElementById('root'));
