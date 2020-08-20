@@ -5,7 +5,6 @@ import Header from "./Header";
 import MainSlider from "./MainSlider";
 import ProductList from "./ProductList";
 
-//Start---Create a Component---
 class Home extends Component{
     state = {};
     render() {
@@ -27,6 +26,5 @@ class Home extends Component{
         );
     }
 }
-//End---Create a Component---
 
 export default Home;
