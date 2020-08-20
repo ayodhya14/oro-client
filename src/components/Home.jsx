@@ -5,21 +5,23 @@ import Header from "./Header";
 import MainSlider from "./MainSlider";
 import ProductList from "./ProductList";
 
+import "./Home.scss";
+
 class Home extends Component{
     state = {};
     render() {
         return(
             <div className = "homePage_parentDiv">
-                <div className = "header">
+                <div className = "mainHeaderClass">
                     <Header />
                 </div>
-                <div className = "slider">
+                <div className = "mainSliderClass">
                     <MainSlider />
                 </div>
-                <div className = "product_list">
+                <div className = "mainProductListClass">
                     <ProductList />
                 </div>
-                <div className = "footer">
+                <div className = "mainFooterClass">
                     <Footer />
                 </div>
             </div>
