@@ -11,7 +11,8 @@ class Home extends Component{
         return(
             <div className = "homePage_parentDiv">
                 <div className = "header">
-                    <Header />
+                    <Header /> 
+                    
                 </div>
                 <div className = "slider">
                     <MainSlider />
