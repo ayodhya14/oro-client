@@ -42,7 +42,7 @@ class Header extends Component{
                                 <a className="link" href="/">Register</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                Mobole:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>
+                                Mobile:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                                 Email:&nbsp;&nbsp;<a className="link" href="/">ORO.Jewelleries@yahoo.com</a>
