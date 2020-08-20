@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Container from 'react-bootstrap/Container';
 
 import Footer from "./Footer";
 import Header from "./Header";
@@ -26,14 +23,6 @@ class Home extends Component{
                 <div className = "footer">
                     <Footer />
                 </div>
-                {/* <Container>
-                    <Row sm={1} md={2} lg={4}>
-                        <Col style={{border: "1px solid red"}}>1 of 3</Col>
-                        <Col style={{border: "1px solid green"}}>2 of 3</Col>
-                        <Col style={{border: "1px solid black"}}>3 of 3</Col>
-                        <Col style={{border: "1px solid yellow"}}>3 of 3</Col>
-                    </Row>
-                </Container> */}
             </div>
         );
     }
