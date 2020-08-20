@@ -1,11 +1,43 @@
 import React, { Component } from "react";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
+import "./ProductList.scss";
 class Productlist extends Component{
 
     render() {
         return (
-            <div>
-                Main Productlist
+            <div className = "productListParentClass">
+                <Row>
+                <div className="card" style={{width: "18rem"}}>
+                    <div className="card-body">
+                        <h5 className="card-title">Necklace</h5>
+                         <img className="card-img" src="https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg" alt="Neckalace Collection"/>
+                         <a href="#" className="btn btn-primary" style={{width: "15.4rem"}}>Add to Cart</a>
+                     </div>
+                 </div>
+                 <div className="card" style={{width: "18rem"}}>
+                    <div className="card-body">
+                        <h5 className="card-title">Necklace</h5>
+                         <img className="card-img" src="https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg" alt="Neckalace Collection"/>
+                         <a href="#" className="btn btn-primary" style={{width: "15.4rem"}}>Add to Cart</a>
+                     </div>
+                 </div>
+                 <div className="card" style={{width: "18rem"}}>
+                    <div className="card-body">
+                        <h5 className="card-title">Necklace</h5>
+                         <img className="card-img" src="https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg" alt="Neckalace Collection"/>
+                         <a href="#" className="btn btn-primary" style={{width: "15.4rem"}}>Add to Cart</a>
+                     </div>
+                 </div>
+                 <div className="card" style={{width: "18rem"}}>
+                    <div className="card-body">
+                        <h5 className="card-title">Necklace</h5>
+                         <img className="card-img" src="https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg" alt="Neckalace Collection"/>
+                         <a href="#" className="btn btn-primary" style={{width: "15.4rem"}}>Add to Cart</a>
+                     </div>
+                 </div>
+               </Row>
             </div>
         );
     }
