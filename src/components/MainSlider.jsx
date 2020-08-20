@@ -4,23 +4,41 @@ import "./MainSlider.scss";
 
 class MainSlider extends Component{
 
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            sliderValues: [
+                {
+                    image: "../images/slider.png",
+                    alt: "First slide image"
+                },
+                {
+                    image: "../images/slider1.png",
+                    alt: "Second slide image"
+                },
+                {
+                    image: "../images/slider2.png",
+                    alt: "Third slide image"
+                }
+            ]
+        };
+    }
+
     render() {
         return (
-            <Carousel interval={2000}>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100 h-50"
-                        src="../images/slider1.png"
-                        alt="First slide"
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100 h-50"
-                        src="../images/slider2.png"
-                        alt="Third slide"
-                    />
-                </Carousel.Item>
+            <Carousel interval={2500}>
+                {this.state.sliderValues.map((value, index) => {
+                    return (
+                        <Carousel.Item index={index}>
+                            <img
+                                className="d-block w-100 imageSlider"
+                                src={value.image}
+                                alt={value.alt}
+                            />
+                        </Carousel.Item>
+                    );
+                })}
             </Carousel>
         );
     }
