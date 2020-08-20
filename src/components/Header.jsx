@@ -35,7 +35,7 @@ class Header extends Component{
                                 </InputGroup>
                             </div>
                         </Row>
-                        <Row style={{marginTop: "5vh"}}>
+                        <Row style={{marginTop: "2vh"}}>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                                 <a className="link" href="/">Login</a>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
