@@ -5,7 +5,8 @@ import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import { FaShoppingCart } from "react-icons/fa";
+import { FaPaypal } from "react-icons/fa";
+import { FaCreditCard } from "react-icons/fa";
 import Badge from 'react-bootstrap/Badge';
 
 class Footer extends Component{
@@ -17,14 +18,16 @@ class Footer extends Component{
                 <Row style={{marginTop: "2vh", backgroundColor: "Black"}}>
 
                     {/* Logo */}
-                    <Col xs={3} sm={3} md={3} lg={3} className="headerLinks"style={{marginLeft: "5%" , marginTop: "3vh"}}>
+                    <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "5%" , marginTop: "3vh"}}>
                         <div>
                             <Image roundedCircle className="OROLogo" src="https://res.cloudinary.com/persystance-network/image/upload/v1597958481/slt/portal_user/1597958481008.jpg" alt="ORO Jewellers Main Logo" />
+                            <Badge style={{cursor: "pointer" }}><FaPaypal style={{ cursor: "pointer", width: "4vh", height: "4vh" }} />&nbsp;&nbsp;</Badge>
+                            <Badge style={{cursor: "pointer" }}><FaCreditCard style={{ cursor: "pointer", width: "4vh", height: "4vh" }} />&nbsp;&nbsp;</Badge>
                         </div>
                     </Col>
 
                     {/* Home, About Us, Branchers */}
-                    <Col xs={3} sm={3} md={3} lg={3} className="headerLinks"style={{marginLeft: "4%" , marginTop: "3vh"}}>
+                    <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "4%" , marginTop: "3vh"}}>
                          <a className="link" href="/">
                             <h5>Home</h5>
                         </a>
@@ -37,7 +40,7 @@ class Footer extends Component{
                     </Col>
 
                     {/* Contact Us */}
-                    <Col xs={3} sm={3} md={3} lg={3} className="headerLinks" style={{marginLeft: "4%", marginTop: "3vh"}}>
+                    <Col xs={2} sm={2} md={3} lg={3} className="headerLinks" style={{marginLeft: "4%", marginTop: "3vh"}}>
                         <h5>Contacts</h5>
                         Mobile:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -45,7 +48,7 @@ class Footer extends Component{
                     </Col>
 
                     <div style ={{marginLeft: "42%"}}>
-                        <p>Copyrights@2020 ORO Jewllerers</p> 
+                        <p>©2020 ORO Jewllerers</p> 
                     </div> 
 
                 </Row>
