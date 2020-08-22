@@ -28,5 +28,6 @@ class Home extends Component{
         );
     }
 }
+//End---Create a Component---
 
 export default Home;
