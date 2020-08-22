@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
@@ -53,7 +54,7 @@ class Cart extends Component{
                     <td>@mdo</td>
                     <td>@fat</td>
                     <td>@fat</td>
-                    <td> <Button className = "buttonClass" variant="outline-success">View</Button>{' '}</td>
+                    <td> <Button className = "buttonClass" variant="outline-primary">View</Button>{' '}</td>
                     <td> <Button className = "buttonClass" variant="outline-danger">Remove</Button>{' '}</td>
                     </tr>
                     <tr>
@@ -67,14 +68,26 @@ class Cart extends Component{
                     <td>@fat</td>
                     <td>@fat</td>
                     <td>@fat</td>
-                    <td> <Button className = "buttonClass" variant="outline-success"> View </Button>{' '}</td>
+                    <td> <Button className = "buttonClass" variant="outline-primary"> View </Button>{' '}</td>
                     <td> <Button className = "buttonClass" variant="outline-danger">Remove</Button>{' '}</td>
                     </tr>               
                 </tbody>
                 </Table>
+
+                <div className = "checkout">
+                    <Container>
+                    <Row>
+                        <Col> <Button className = "buttonCheckoutClass" variant="success">Checkout</Button>{' '}</Col>
+                    </Row>
+                    </Container>
+                    
+                </div>
+
                 </Card>
+
             </div>
     );
+    
     }
 }
 export default Cart;
