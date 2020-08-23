@@ -37,8 +37,7 @@ class Header extends Component{
                         </Row>
                         <Row style={{marginTop: "2vh"}}>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                <a className="link" href="/">Login</a>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a className="link" href="/" style={{marginRight: "30px" }}>Login</a>
                                 <a className="link" href="/">Register</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
@@ -48,7 +47,7 @@ class Header extends Component{
                                 Email:&nbsp;&nbsp;<a className="link" href="/">ORO.Jewelleries@yahoo.com</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                <Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }} />&nbsp; 9</Badge>
+                                <Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }} />&nbsp; 3</Badge>
                             </Col>
                         </Row>
                     </Col>

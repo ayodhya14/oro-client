@@ -1,15 +1,40 @@
 .card{
     margin: 0% 2% 0% 2%;
+    padding: 15px;
 }
 
 .tableHeader{
     color: white;
 }
 
-// .buttonClass{
-//    margin-left: 26%;
-// }
+.cartProductImage {
+   width: 70px;
+}
 
-.buttonCheckoutClass{
-       margin: 2% 0% 6% 0%;
+.tableBodyData {
+    vertical-align: middle !important;
+}
+
+.checkout {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonCheckoutClass {
+    width: 75%;
+    font-weight: 700 !important;
+}
+
+.headingClass {
+    margin-bottom: 25px;
+    margin-top: 10px;
+    color: darkslategray;
+}
+
+.cardHeadigClass {
+    color: #b1b1b1;
+}
+
+.anquerTagColor {
+    color: #757575 !important;
 }
