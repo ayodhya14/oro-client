@@ -16,15 +16,15 @@ class Home extends Component{
                 <div className = "mainHeaderClass">
                     <Header />
                 </div>
-                <div className = "mainSliderClass">
+                {/* <div className = "mainSliderClass">
                     <MainSlider />
                 </div>
                 <div className = "mainProductListClass">
                     <ProductList />
-                </div>
-                {/* <div className = "viewCartClass">
-                    <Cart />
                 </div> */}
+                <div className = "viewCartClass">
+                    <Cart />
+                </div>
                 <div className = "mainFooterClass">
                     <Footer />
                 </div>
