@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { FaPaypal } from "react-icons/fa";
 import { FaCreditCard } from "react-icons/fa";
 import Badge from 'react-bootstrap/Badge';
+// import { Link } from 'react-router';
 
 class Footer extends Component{
 
@@ -28,9 +29,10 @@ class Footer extends Component{
 
                     {/* Home, About Us, Branchers */}
                     <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "4%" , marginTop: "3vh"}}>
-                         <a className="link" href="/">
+                         <a className="link" href=" /Home">
                             <h5>Home</h5>
                         </a>
+                        {/* <li><Link to="/Home"><h5>Home</h5></Link></li> */}
                         <a className="link" href="/">
                             <h5>About </h5>
                         </a>
