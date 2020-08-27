@@ -19,7 +19,7 @@ class Cart extends Component{
         this.state = {
             price: "",
             qty: "",
-            paymentType: "Payment Type 1",
+            paymentType: "Payment Type",
             address: {
                 address_Line_1: "No 42",
                 address_Line_2: "Samudrasanna Rd",
@@ -67,6 +67,12 @@ class Cart extends Component{
 
     onClickRemoveItem = (id) => {
         alert(id);
+    };
+
+    handlePaymentType = (str) => {
+        this.setState({
+            paymentType: str
+        });
     };
 
     render() {
@@ -130,8 +136,8 @@ class Cart extends Component{
                                 <div>
                                     <h6 className="cardHeadigClass">Payment Type</h6>
                                     <DropdownButton variant="secondary" id="dropdown-item-button" title={this.state.paymentType} style={{marginLeft: "8px"}}>
-                                        <Dropdown.Item as="button">Payment Type 1</Dropdown.Item>
-                                        <Dropdown.Item as="button">Payment Type 2</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => this.handlePaymentType("PayPal")} as="button">PayPal</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => this.handlePaymentType("Credit Card")} as="button">Credit Card</Dropdown.Item>
                                     </DropdownButton>
                                 </div>
                                 <br />
