@@ -10,7 +10,6 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-
 import "./Cart.scss";
 
 class Cart extends Component{
