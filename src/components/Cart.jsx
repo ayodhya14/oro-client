@@ -46,7 +46,8 @@ class Cart extends Component{
                     price: 15000,
                     subTotal: 45000,
                     qty: 3
-                }
+                },
+                
             ]
         };
     }

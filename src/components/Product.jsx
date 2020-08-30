@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from 'react-bootstrap/Button';
 import "./Product.scss";
 class Product extends Component {
     state = {
@@ -17,7 +18,7 @@ class Product extends Component {
                     <div className="centerClass">
                         <h6 className="card-title">{this.props.product.unitPrice}</h6>
                     </div>
-                    <a href="#" className="btn btn-warning"  style={{width: "100%", color: "black"}}>Add to Cart</a>
+                    <Button style={{width: "100%"}} variant="warning">Add to Cart</Button>
                 </div>
              </div>
         );
