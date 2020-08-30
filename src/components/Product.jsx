@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import Button from 'react-bootstrap/Button';
 import "./Product.scss";
 class Product extends Component {
-    state = {
-        productId: this.props.product.id,
+    
+    constructor(props) {
+        super(props)
+        this.state = {
+            productId: this.props.product.id,
+            cartItemArray: [],
+        };
+    }
+
+    onClickAddToCartItem = (val) => {
+        
     };
 
     render() {
@@ -18,9 +27,9 @@ class Product extends Component {
                     <div className="centerClass">
                         <h6 className="card-title">{this.props.product.unitPrice}</h6>
                     </div>
-                    <Button style={{width: "100%"}} variant="warning">Add to Cart</Button>
+                    <Button onClick={() => this.onClickAddToCartItem(this.props.product)} style={{width: "100%"}} variant="warning">Add to Cart</Button>
                 </div>
-             </div>
+            </div>
         );
     }
 }
