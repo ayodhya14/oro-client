@@ -5,6 +5,7 @@ import Header from "./Header";
 import MainSlider from "./MainSlider";
 import ProductList from "./ProductList";
 import Cart from "./Cart";
+import GoogleBtn from './GoogleBtn';
 
 import "./Home.scss";
 
@@ -21,6 +22,7 @@ class Home extends Component{
                 </div>
                 <div className = "mainProductListClass">
                     <ProductList />
+                    {/* <GoogleBtn /> */}
                 </div>
                 <div className = "viewCartClass">
                     <Cart />
@@ -32,7 +34,9 @@ class Home extends Component{
             </div>
             
         );
+
     }
+
 }
 //End---Create a Component---
 
