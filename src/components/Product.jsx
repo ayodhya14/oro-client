@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./Product.scss";
 class Product extends Component {
     state = {
         productId: this.props.product.id,
@@ -7,15 +7,18 @@ class Product extends Component {
 
     render() {
         return (
-            <div className="card" style={{width: "18rem", marginLeft: "5%"}}>
-                    <div className="card-body">
-                       
-                         <img className="card-img" src={this.props.product.imageUrl} alt="Jewellery Collection"/>
-                         {/* <h5 className="card-title">Necklace</h5> */}
-                         <p>Gold Necklace with Flower Petal Shapes as a Pendant set with White Stones.</p>
-                         <h6 className="card-title">Rs.32,000</h6>
-                         <a href="#" className="btn btn-primary"  style={{width: "15.4rem"}}>Add to Cart</a>
+            <div className="card" style={{height: "95%", marginBottom: "20px"}}>
+                <div className="card-body">
+                    <h5 className="card-title">{this.props.product.productType}</h5>
+                    <img className="card-img productImg" src={this.props.product.imageUrl} alt="Product Image"/>
+                    <div className="centerClass">
+                        <h5 className="card-title">{this.props.product.name}</h5>
                     </div>
+                    <div className="centerClass">
+                        <h6 className="card-title">{this.props.product.unitPrice}</h6>
+                    </div>
+                    <a href="#" className="btn btn-warning"  style={{width: "100%", color: "black"}}>Add to Cart</a>
+                </div>
              </div>
         );
     }
