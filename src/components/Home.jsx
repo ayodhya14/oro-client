@@ -22,9 +22,9 @@ class Home extends Component{
                 <div className = "mainProductListClass">
                     <ProductList />
                 </div>
-                {/* <div className = "viewCartClass">
+                <div className = "viewCartClass">
                     <Cart />
-                </div> */}
+                </div>
                 <div className = "mainFooterClass">
                     <Footer />
                 </div>

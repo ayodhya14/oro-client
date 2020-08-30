@@ -15,16 +15,16 @@ class ProductList extends Component{
     render() {
         return (
             <div className = "productListParentClass">
-                <div className="row">
+                <Row xs={1} sm={2} md={3} lg={4}>
                     {this.state.allProducts.map((product) => (
-                        <div className="col" key={product.id}>
+                        <Col xs={12} sm={6} md={4} lg={3} key={product.id}>
                             <Product
                                 key={product.id} 
                                 product={product}
                             />
-                        </div>
+                        </Col>
                     ))}
-                </div>
+                </Row>
             </div>
         );
     }
