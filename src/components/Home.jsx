@@ -32,24 +32,26 @@ class Home extends Component{
             </div>
             
         );
-
-        // var homePage;
-        // var viewCart;
-        // if (this.state === Home.jsx) {
-            
-        // } else {
-        //     viewCart = <Cart />;
-        // }
-
-        // return (
-        //     <nav>
-        //         <Home />
-        //         {homePage}
-        //     </nav>
-        // );
-
     }
 }
 //End---Create a Component---
 
 export default Home;
+
+// import React from 'react';
+// import { Link } from 'react-router';
+
+// class List extends React.Component {
+//     render() {
+//         return (
+//             <div>
+//                 <p>Please choose a repository from the list below.</p>
+//                 <ul>
+//                     <li><Link to="/Home">React</Link></li>
+//                 </ul>
+//             </div>
+//         );
+//     }
+// }
+
+// export default List;
