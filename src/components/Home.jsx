@@ -6,6 +6,8 @@ import MainSlider from "./MainSlider";
 import ProductList from "./ProductList";
 import Cart from "./Cart";
 import GoogleBtn from './GoogleBtn';
+import Login from './Login';
+import Logout from './Logout';
 
 import "./Home.scss";
 
@@ -16,6 +18,8 @@ class Home extends Component{
             <div className = "homePage_parentDiv">
                 <div className = "mainHeaderClass">
                     <Header />
+                    {/* <Logout /> */}
+                    {/* <Login /> */}
                 </div>
                 <div className = "mainSliderClass">
                     <MainSlider />
