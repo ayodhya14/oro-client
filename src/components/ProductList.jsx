@@ -3,8 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from './Product';
 import axios from "axios";
-// import { FaCartPlus } from "react-icons/fa";
-
 import "./ProductList.scss";
 class ProductList extends Component{
 
@@ -16,10 +14,10 @@ class ProductList extends Component{
         return (
             <div className = "productListParentClass">
                 <Row xs={1} sm={2} md={3} lg={4}>
-                    {this.state.allProducts.map((product) => (
-                        <Col xs={12} sm={6} md={4} lg={3} key={product.id}>
+                    {this.state.allProducts.map((product, index) => (
+                        <Col xs={12} sm={6} md={4} lg={3} key={index}>
                             <Product
-                                key={product.id} 
+                                key={index} 
                                 product={product}
                             />
                         </Col>
@@ -40,6 +38,8 @@ class ProductList extends Component{
             imageUrl: product.imageUrl,
             description: product.description,
             availableQty: product.availableQty,
+            unitPrice: product.unitPrice,
+            name: product.name,
           };
         });
     
