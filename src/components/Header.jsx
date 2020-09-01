@@ -58,8 +58,7 @@ class Header extends Component{
                             </Col>
                             <Switch>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                            
-                            <a href = "/ViewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
+                                <a href = "/ViewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
                             </Col>
                             </Switch>
                         </Row>

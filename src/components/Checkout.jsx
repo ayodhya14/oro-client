@@ -8,18 +8,23 @@ import Table from 'react-bootstrap/Table';
 import { Card } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 import "./Cart.scss";
-import Checkout from "./Checkout";
 
-class Cart extends Component{
+class Checkout extends Component{
     constructor(props) {
         super(props)
-        this.viewCheckout = this.viewCheckout.bind(this);
         this.state = {
             price: "",
             qty: "",
-
+            paymentType: "Payment Type",
+            address: {
+                address_Line_1: "No 2/A",
+                address_Line_2: "Hortn Rd",
+                city: "Yakkala",
+                country: "Sri Lanka"
+            },
             tableData: [
                 {
                     image: "https://ae01.alicdn.com/kf/HTB1.AgdajzuK1RjSspeq6ziHVXaS/Rhinestone-Happy-Family-Ring-Mother-Father-Girl-Boy-Design-Rings-for-Family-Merry-Christmas-New-Year.jpg_960x960.jpg",
@@ -31,8 +36,8 @@ class Cart extends Component{
                 {
                     image: "https://i.pinimg.com/originals/eb/95/d3/eb95d3eafbf6d85ec230c13eedcbd8db.png",
                     name: "Pin on Women jewelry",
-                    price: 3000,
-                    subTotal: 3000,
+                    price: 8000,
+                    subTotal: 8000,
                     qty: 1
                 },
                 {
@@ -50,14 +55,13 @@ class Cart extends Component{
     calculatePayment = () => {
         let price = 0;
         let qty = 0;
-
         for (let x = 0; x < this.state.tableData.length; x++) {
             price = this.state.tableData[x].subTotal + price;
             qty = this.state.tableData[x].qty + qty;
         }
         this.setState({
             price: price,
-            qty: qty,
+            qty: qty
         });
     };
 
@@ -65,21 +69,21 @@ class Cart extends Component{
         alert(id);
     };
 
-    
-    viewCheckout() {
-        // alert('Hello!');
-        // <Checkout />
-    }
+    handlePaymentType = (str) => {
+        this.setState({
+            paymentType: str
+        });
+    };
 
     render() {
         return(
-            <div className = "ParentClassCart">
+            <div className = "ParentClassCheckout">
                 {this.state.price == "" ? this.calculatePayment() : null}
                 <Card className = "card">
                     <Row xs={1} sm={1} md={2} lg={2}>
                         <Col xs={12} sm={12} md={8} lg={8}>
                             <div className="headingClass">
-                                <h4> Shopping Cart </h4>
+                                <h4>Checkout Cart Summary</h4>
                             </div>
                             <div>
                                 <Table responsive="sm">
@@ -102,7 +106,7 @@ class Cart extends Component{
                                             </tbody>
                                         );
                                     })}
-                                </Table>                                
+                                </Table>
                             </div>
                         </Col>
                         <Col xs={12} sm={12} md={4} lg={4}>
@@ -111,40 +115,62 @@ class Cart extends Component{
                             </div>
                             <Card className = "card">
                                 <div>
-                                    <h6 className="cardHeadingClass">Payment</h6>
+                                    <h6 className="cardHeadigClass">Delivering Address</h6>
+                                    <Card className = "card">
+                                        <Row>
+                                            <Col xs={10} sm={10} md={10} lg={10}>
+                                                <div>
+                                                    <span>{this.state.address.address_Line_1}{this.state.address.address_Line_2 != "" ? " ," : ""}</span><br />
+                                                    <span>{this.state.address.address_Line_2}{this.state.address.city != "" ? " ," : ""}</span><br />
+                                                    <span>{this.state.address.city}{this.state.address.country != "" ? " ," : ""}</span><br />
+                                                    <span>{this.state.address.country}</span>
+                                                </div>
+                                            </Col>
+                                            <Col xs={2} sm={2} md={2} lg={2}>
+                                                {/* <FaPenSquare style={{fontSize: "18px"}}/> */}
+                                            </Col>
+                                        </Row>
+                                    </Card>
+                                </div>
+                                <br />
+                                <div>
+                                    <h6 className="cardHeadigClass">Payment Type</h6>
+                                    <DropdownButton variant="secondary" id="dropdown-item-button" title={this.state.paymentType} style={{marginLeft: "8px"}}>
+                                        <Dropdown.Item onClick={() => this.handlePaymentType("PayPal")} as="button">PayPal</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => this.handlePaymentType("Credit Card")} as="button">Credit Card</Dropdown.Item>
+                                    </DropdownButton>
+                                </div>
+                                <br />
+                                <div>
+                                    <h6 className="cardHeadigClass">Payment</h6>
                                     <Card className = "card">
                                         <Row>
                                             <Col xs={6} sm={6} md={6} lg={6}>
                                                 <div>
-                                                    <span>Subtotal</span><br />
-                                                    <span>Delivery</span><br /><br />
-                                                    <span><b>Total</b></span>
+                                                    <span>Total Quantity:</span><br />
+                                                    <span>Total Price:</span><br />
                                                 </div>
                                             </Col>
                                             <Col xs={6} sm={6} md={6} lg={6}>
                                                 <div style={{textAlign: "right", paddingRight: "10px"}}>
-                                                    <span>{this.state.price}</span><br />
-                                                    <span>250</span><br /><br />
-                                                    <span>{this.state.price+250}</span>
+                                                    <span>{this.state.qty}</span><br />
+                                                    <span>{this.state.price}</span>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card>
                                 </div>
                                 <br />
-                                   <a  href = "/Checkout" className = "btn btn-warning">cart</a>
-                                    <div className = "checkout">
-                                    <Button className = "buttonCheckoutClass" onClick={this.viewCheckout} variant="warning">Proceed To Checkout</Button>
-                                    </div>
+                                <div className = "placeOrder">
+                                    <Button className = "buttonPlaceOrderClass" variant="warning">Confirm and Place Order</Button>
+                                </div>
                             </Card>
                         </Col>
-
                     </Row>
                 </Card>
-               
             </div>
         );
     
     }
 }
-export default Cart;
+export default Checkout;
