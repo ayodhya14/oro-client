@@ -7,9 +7,13 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { FaShoppingCart } from "react-icons/fa";
 import Badge from 'react-bootstrap/Badge';
+import axios from "axios";
 
 import "./Header.scss";
 class Header extends Component{
+    state = {
+        name : String,
+      };
 
     render() {
         return (
@@ -25,12 +29,14 @@ class Header extends Component{
                             <div className="searchWidget">
                                 <InputGroup className="mb-3">
                                     <FormControl
+                                        onChange={this.handleSearchChange}
                                         placeholder="Search by product name"
                                         aria-label="Search by product name"
                                         aria-describedby="basic-addon2"
+                                    
                                     />
                                     <InputGroup.Append>
-                                        <Button variant="warning">Search</Button>
+                                        <Button variant="warning" onClick={this.searchProduct}>Search</Button>
                                     </InputGroup.Append>
                                 </InputGroup>
                             </div>
@@ -55,6 +61,23 @@ class Header extends Component{
             </div>
         );
     }
+    
+    constructor(props) {
 
+        super(props);
+        this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.searchProduct = this.searchProduct.bind(this);
+      }
+    handleSearchChange (e) {
+
+        this.setState({name: e.target.value});
+        console.log(this.state.name);
+     }
+    async searchProduct() {
+      
+       console.log(this.state.name);
+       let product = await axios.get(`http://localhost:5000/api/products/name/${this.state.name}`);
+       console.log(product);
+      }
 }
 export default Header;
