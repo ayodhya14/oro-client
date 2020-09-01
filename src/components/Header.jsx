@@ -9,10 +9,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import Badge from 'react-bootstrap/Badge';
 import axios from "axios";
 
-import ViewCart from "./ViewCart";
-
 import "./Header.scss";
-import Switch from "react-bootstrap/esm/Switch";
 
 class Header extends Component{
     state = {
@@ -37,10 +34,9 @@ class Header extends Component{
                                         placeholder="Search by product name"
                                         aria-label="Search by product name"
                                         aria-describedby="basic-addon2"
-                                    
                                     />
                                     <InputGroup.Append>
-                                        <Button variant="warning" onClick={this.searchProduct}>Search</Button>
+                                    <a href = "/search"><Button variant="warning" onClick={() => this.setSearch()}> Search </Button></a>
                                     </InputGroup.Append>
                                 </InputGroup>
                             </div>
@@ -54,37 +50,41 @@ class Header extends Component{
                                 Mobile:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                Email:&nbsp;&nbsp;<a className="link" href="/">ORO.Jewelleries@yahoo.com</a>
+                                Email:&nbsp;&nbsp;<a className="link" href="/">oro.jewelleries@yahoo.com</a>
                             </Col>
-                            <Switch>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                            
-                            <a href = "/ViewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
-                            </Col>
-                            </Switch>
+                            <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
+                            </Col>   
                         </Row>
                     </Col>
                 </Row>
             </div>
         );
     }
+
+    setSearch = () => {
+        this.props.sendSearch(this.state.name);
+        console.log("name is set");
+        console.log(this.state.name);
+    }
+
     
     constructor(props) {
 
         super(props);
         this.handleSearchChange = this.handleSearchChange.bind(this);
-        this.searchProduct = this.searchProduct.bind(this);
+       
       }
     handleSearchChange (e) {
 
         this.setState({name: e.target.value});
         console.log(this.state.name);
      }
-    async searchProduct() {
-      
-       console.log(this.state.name);
-       let product = await axios.get(`http://localhost:5000/api/products/name/${this.state.name}`);
-       console.log(product);
-      }
+    //  searchProduct(e) {
+    //     this.setState({name: e.target.value});
+    //     console.log(this.state.name);
+        
+    // }
 }
+
 export default Header;
