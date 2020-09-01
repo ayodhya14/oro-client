@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button';
 import { FaShoppingCart } from "react-icons/fa";
 import Badge from 'react-bootstrap/Badge';
 import axios from "axios";
+import Login from './Login';
+import Logout from './Logout';
 
 import "./Header.scss";
 
@@ -41,9 +43,9 @@ class Header extends Component{
                                 </InputGroup>
                             </div>
                         </Row>
-                        <Row style={{marginTop: "2vh"}}>
+                        <Row style={{ marginTop: "2vh" }}>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                <a className="link" href="/" style={{marginRight: "30px" }}>Login</a>
+                                <a className="link" href="/" style={{ marginRight: "30px" }}>Login</a>
                                 <a className="link" href="/">Register</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
@@ -55,6 +57,12 @@ class Header extends Component{
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                             <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
                             </Col>   
+                            <Col>
+                                <Login />
+                            </Col>
+                            <Col>
+                                <Logout />
+                            </Col>
                         </Row>
                     </Col>
                 </Row>
