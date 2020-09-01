@@ -9,19 +9,23 @@ import { FaShoppingCart } from "react-icons/fa";
 import Badge from 'react-bootstrap/Badge';
 import axios from "axios";
 
+import ViewCart from "./ViewCart";
+
 import "./Header.scss";
+import Switch from "react-bootstrap/esm/Switch";
+
 class Header extends Component{
     state = {
         name : String,
       };
-
+    
     render() {
         return (
             <div className="headerParentClass">
                 <Row>
                     <Col xs={3} sm={2} md={2} lg={2}>
                         <div>
-                            <Image roundedCircle className="OROLogo" src="https://res.cloudinary.com/persystance-network/image/upload/v1597958481/slt/portal_user/1597958481008.jpg" alt="ORO Jewellers Main Logo" />
+                        <a href = "/"> <Image roundedCircle className="OROLogo" src="https://res.cloudinary.com/persystance-network/image/upload/v1597958481/slt/portal_user/1597958481008.jpg" alt="ORO Jewellers Main Logo" /></a>
                         </div>
                     </Col>
                     <Col xs={9} sm={10} md={10} lg={10}>
@@ -52,9 +56,12 @@ class Header extends Component{
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                                 Email:&nbsp;&nbsp;<a className="link" href="/">ORO.Jewelleries@yahoo.com</a>
                             </Col>
+                            <Switch>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                <Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }} />&nbsp; 3</Badge>
+                            
+                            <a href = "/ViewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
                             </Col>
+                            </Switch>
                         </Row>
                     </Col>
                 </Row>
