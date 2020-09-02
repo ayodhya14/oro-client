@@ -70,6 +70,7 @@ class Header extends Component{
         );
     }
 
+    //sends the search name to parent : ProductSearch
     setSearch = () => {
         this.props.sendSearch(this.state.name);
         console.log("name is set");
@@ -83,16 +84,14 @@ class Header extends Component{
         this.handleSearchChange = this.handleSearchChange.bind(this);
        
       }
+
+    //Captures the text in the search
     handleSearchChange (e) {
 
         this.setState({name: e.target.value});
         console.log(this.state.name);
      }
-    //  searchProduct(e) {
-    //     this.setState({name: e.target.value});
-    //     console.log(this.state.name);
-        
-    // }
+
 }
 
 export default Header;

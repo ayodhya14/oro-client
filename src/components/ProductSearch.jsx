@@ -31,13 +31,16 @@ class ProductSearch extends Component{
     async componentDidMount() {
         let name = this.props.sendSearch;
         console.log(name);
-        let {data} = await axios.get(`http://localhost:5000/api/products/name/${name}`);
+        
+            let { data } = await axios.get("http://localhost:5000/api/products");
+            this.setState({ filterallProducts: data }, () => {
+                this.filterCategory(name);
+            });
+        
+
         // let {data} = await axios.get(`http://localhost:5000/api/products/name/${Header.state.name}`);
 
         console.log(data);
-
-        // let { data } = await axios.get("http://localhost:5000/api/products");
-        // console.log(data);
     
         let products = data.map((product) => {
           return {
@@ -53,8 +56,41 @@ class ProductSearch extends Component{
     
         this.setState({ allProducts: products });
       }
-
       
+      filterCategory(categoryName) {
+        //Assing all product to new variable
+        let filterProduct;
+        filterProduct = this.state.filterallProducts;
+        //Filter new variable 
+        if (categoryName === "Bangle") {
+            filterProduct = filterProduct.filter(function (item) {
+                return item.productType === 'Bangle';
+            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
+                return { id, imageUrl, description, availableQty, unitPrice, name };
+            });
+
+        } if (categoryName === "Necklace") {
+            filterProduct = filterProduct.filter(function (item) {
+                return item.productType === 'Necklace';
+            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
+                return { id, imageUrl, description, availableQty, unitPrice, name };
+            });
+
+        } if (categoryName === "Earring") {
+            filterProduct = filterProduct.filter(function (item) {
+                return item.productType === 'Earring';
+            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
+                return { id, imageUrl, description, availableQty, unitPrice, name };
+            });
+
+        } if (categoryName === "Pendent") {
+            filterProduct = filterProduct.filter(function (item) {
+                return item.productType === 'Pendent';
+            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
+                return { id, imageUrl, description, availableQty, unitPrice, name };
+            });
+        }
+    }
 
     //   async searchProduct(){
     //     console.log(this.props.name);
