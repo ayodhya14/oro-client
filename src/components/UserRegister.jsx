@@ -10,6 +10,8 @@ import FormFile from 'react-bootstrap/FormFile'
 import Button from 'react-bootstrap/Button'
 import { Card } from "react-bootstrap";
 
+import Login from './Login';
+
 class UserRegister extends Component{
     
     state = {
@@ -92,6 +94,9 @@ class UserRegister extends Component{
 
                                         <div className = "UserRegisterClass" > 
                                         <span><a  href = "/ViewUserLogin" onClick={this.login}>Already have an account?</a></span>
+                                        <Col>
+                                            <Login />
+                                        </Col>
                                         </div>
 
                                     </Form>    

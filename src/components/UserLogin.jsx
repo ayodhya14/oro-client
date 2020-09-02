@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button'
 import { Card } from "react-bootstrap";
 
 import "./UserLogin.scss";
+import Login from './Login';
+
 
 class UserLogin extends Component{
    
@@ -56,7 +58,11 @@ class UserLogin extends Component{
 
                                         <div className = "UserRegisterClass"> 
                                         <span><a  href = "/ViewUserRegister" onClick={this.login}>New User?</a></span>
+                                        <Col>
+                                            <Login />
+                                        </Col>
                                         </div>
+                                       
                                     </Form>    
                                 </Col>    
                             </Row>   

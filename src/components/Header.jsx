@@ -60,13 +60,15 @@ class Header extends Component{
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                             <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
-                            </Col>   
-                            <Col>
+                            <a className="link" href="/UserProfile">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Account</a>
+                            </Col>  
+                    
+                            {/* <Col>
                                 <Login />
                             </Col>
                             <Col>
                                 <Logout />
-                            </Col>
+                            </Col> */}
                         </Row>
                     </Col>
                 </Row>
