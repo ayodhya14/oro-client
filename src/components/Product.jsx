@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from 'react-bootstrap/Button';
 import "./Product.scss";
+
 class Product extends Component {
     
     constructor(props) {

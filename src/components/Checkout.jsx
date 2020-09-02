@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
 import { FaPenSquare } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import Table from 'react-bootstrap/Table';
@@ -10,7 +11,8 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import "./Cart.scss";
+
+import "./Checkout.scss";
 
 class Checkout extends Component{
     constructor(props) {
@@ -36,8 +38,8 @@ class Checkout extends Component{
                 {
                     image: "https://i.pinimg.com/originals/eb/95/d3/eb95d3eafbf6d85ec230c13eedcbd8db.png",
                     name: "Pin on Women jewelry",
-                    price: 8000,
-                    subTotal: 8000,
+                    price: 3000,
+                    subTotal: 3000,
                     qty: 1
                 },
                 {
@@ -99,9 +101,6 @@ class Checkout extends Component{
                                                     <td className="tableBodyData">{item.qty}</td>
                                                     <td className="tableBodyData">{item.price}</td>
                                                     <td className="tableBodyData">{item.subTotal}</td>
-                                                    <td className="tableBodyData">
-                                                        <Button onClick={() => this.onClickRemoveItem(index)} className = "buttonClass" variant="outline-danger"><FaTrashAlt /></Button>
-                                                    </td>
                                                 </tr>
                                             </tbody>
                                         );
@@ -147,14 +146,16 @@ class Checkout extends Component{
                                         <Row>
                                             <Col xs={6} sm={6} md={6} lg={6}>
                                                 <div>
-                                                    <span>Total Quantity:</span><br />
-                                                    <span>Total Price:</span><br />
+                                                    <span>Subtotal</span><br />
+                                                    <span>Delivery</span><br /><br />
+                                                    <span><b>Total</b></span>
                                                 </div>
                                             </Col>
                                             <Col xs={6} sm={6} md={6} lg={6}>
                                                 <div style={{textAlign: "right", paddingRight: "10px"}}>
-                                                    <span>{this.state.qty}</span><br />
-                                                    <span>{this.state.price}</span>
+                                                    <span>{this.state.price}</span><br />
+                                                    <span>250</span><br /><br />
+                                                    <span>{this.state.price+250}</span>
                                                 </div>
                                             </Col>
                                         </Row>

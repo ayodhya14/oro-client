@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
 import { FaPenSquare } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import Table from 'react-bootstrap/Table';
@@ -9,8 +10,8 @@ import { Card } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
-import "./Cart.scss";
 import Checkout from "./Checkout";
+import "./Cart.scss";
 
 class Cart extends Component{
     constructor(props) {
@@ -67,7 +68,7 @@ class Cart extends Component{
 
     
     viewCheckout() {
-        // alert('Hello!');
+        alert('Are you sure you want to Checkout?');
         // <Checkout />
     }
 
@@ -132,9 +133,9 @@ class Cart extends Component{
                                     </Card>
                                 </div>
                                 <br />
-                                   <a  href = "/Checkout" className = "btn btn-warning">cart</a>
                                     <div className = "checkout">
-                                    <Button className = "buttonCheckoutClass" onClick={this.viewCheckout} variant="warning">Proceed To Checkout</Button>
+                                    <a  href = "/ViewCheckout" className = "btn btn-warning" onClick={this.viewCheckout}>Proceed To Checkout</a>
+                                    {/* <Button className = "buttonCheckoutClass" onClick={this.viewCheckout} variant="warning">Proceed To Checkout</Button> */}
                                     </div>
                             </Card>
                         </Col>

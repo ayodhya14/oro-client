@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
 import Image from 'react-bootstrap/Image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import { FaShoppingCart } from "react-icons/fa";
 import Badge from 'react-bootstrap/Badge';
+
 import axios from "axios";
+
 import Login from './Login';
 import Logout from './Logout';
+import ViewCart from "./ViewCart";
 
 import "./Header.scss";
 
@@ -45,8 +49,8 @@ class Header extends Component{
                         </Row>
                         <Row style={{ marginTop: "2vh" }}>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                <a className="link" href="/" style={{ marginRight: "30px" }}>Login</a>
-                                <a className="link" href="/">Register</a>
+                                <a className="link" href="/ViewUserLogin" style={{ marginRight: "30px" }}>Login</a>
+                                <a className="link" href="/ViewUserRegister">Register</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                                 Mobile:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>

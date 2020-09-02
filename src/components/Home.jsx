@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
 import Footer from "./Footer";
 import Header from "./Header";
+
 import MainSlider from "./MainSlider";
 import ProductList from "./ProductList";
 import Cart from "./Cart"; 
