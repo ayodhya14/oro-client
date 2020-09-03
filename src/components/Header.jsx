@@ -49,8 +49,8 @@ class Header extends Component{
                         </Row>
                         <Row style={{ marginTop: "2vh" }}>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                <a className="link" href="/ViewUserLogin" style={{ marginRight: "30px" }}>Login</a>
-                                <a className="link" href="/ViewUserRegister">Register</a>
+                                <a className="link" href="/ViewUserLogin">Login</a>
+                                {/* <a className="link" href="/ViewUserRegister">Register</a> */}
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                                 Mobile:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>
@@ -59,8 +59,8 @@ class Header extends Component{
                                 Email:&nbsp;&nbsp;<a className="link" href="/">oro.jewelleries@yahoo.com</a>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                            <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
-                            <a className="link" href="/UserProfile">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Account</a>
+                            <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
+                            <a className="link" href="/UserProfile" >Account</a>
                             </Col>  
                     
                             {/* <Col>

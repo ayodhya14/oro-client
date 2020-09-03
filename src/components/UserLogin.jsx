@@ -25,14 +25,13 @@ class UserLogin extends Component{
             <div className = "UserLoginParentClass">
 
                 <Row xs={1} sm={1} md={1} lg={1}>
-                    {/* <Col xs={12} sm={6} md={4} lg={3} key={index}> */}
-                    <Col xs={12} sm={12} md={6} lg={6}>
-                        <Card className = "cardHeader" bg = "warning">
-                        <div className="headingClass">
-                            <h4 style= {{ marginLeft: "44%"}}>Login</h4>
-                        </div>    
+                    <Col >
+                        <Card className="loginCardHeader" bg="warning">
+                            <div className="loginHeadingClass">
+                                <h2>Login</h2>
+                            </div>    
                         </Card>                        
-                        <Card className = "card" border="warning"  >
+                        <Card className="loginCardBody card" border="warning">
                             <Row>
                                 <Col xs={12} sm={12} md={12} lg={12}>                                    
                                     <Form >
@@ -56,17 +55,17 @@ class UserLogin extends Component{
                                             Login
                                         </Button>
 
-                                        <div className = "UserRegisterClass"> 
-                                        <span><a  href = "/ViewUserRegister" onClick={this.login}>New User?</a></span>
+                                        <div className = ""> 
+                                        <a href = "/ViewUserRegister" onClick={this.login} className="anquerTagNewUser">New User?</a>
                                         <Col>
                                             <Login />
                                         </Col>
                                         </div>
-                                       
+                                    
                                     </Form>    
                                 </Col>    
                             </Row>   
-                        </Card>                               
+                        </Card>
                     </Col>                                             
                 </Row>
             </div>

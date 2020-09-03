@@ -1,13 +1,36 @@
-.UserRegisterClass{
-    color: tomato;
+.anquerTagNewUser {
+    color: #007bff !important;
 }
 
-.card{
+.anquerTagNewUser:hover {
+  color: #adadad !important;
+}
+
+.card {
     margin: 0% 2% 0% 2%;
     padding: 15px;
-  
 }
 
-.cardHeader{
+.loginHeadingClass {
+  display: flex;
+  justify-content: center;
+}
+
+.UserLoginParentClass {
+  width: 50%;
+}
+
+.loginCardHeader {
   background-color: tomato;
+  border-radius: 5px 5px 0px 0px !important;
+}
+
+.loginCardBody {
+  border-radius: 0px 0px 5px 5px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .UserLoginParentClass {
+    width: 85%;
+  }
 }

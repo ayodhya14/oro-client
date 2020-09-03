@@ -74,8 +74,8 @@ class UserRegister extends Component{
                                         </Form.Group>
 
                                         <Form.Group as={Col}>
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" />
+                                        <Form.Label>Create Password</Form.Label>
+                                        <Form.Control type="password" placeholder="Create Your Password" />
                                         </Form.Group>
 
                                     </Form.Row>

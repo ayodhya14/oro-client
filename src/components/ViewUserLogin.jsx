@@ -26,7 +26,7 @@ class ViewUserLogin extends Component{
                     {/* <ProductList /> */}
                     {/* <GoogleBtn /> */}
                 {/* </div> */}
-                <div className = "viewUserLogin">
+                <div className = "viewUserLogin" style={{display: "flex", justifyContent: "center"}}>
                     <UserLogin />
                 </div>
                 <div className = "mainFooterClass">
