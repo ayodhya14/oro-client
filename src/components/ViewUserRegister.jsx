@@ -26,7 +26,7 @@ class ViewUserRegister extends Component{
                     {/* <ProductList /> */}
                     {/* <GoogleBtn /> */}
                 {/* </div> */}
-                <div className = "viewUserRegister">
+                <div className = "viewUserRegister" style={{display: "flex", justifyContent: "center" }}>
                     <UserRegister />
                 </div>
                 <div className = "mainFooterClass">
