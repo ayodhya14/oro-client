@@ -12,6 +12,7 @@ import { Card } from "react-bootstrap";
 
 import "./UserLogin.scss";
 import Login from './Login';
+import Logout from './Logout';
 
 
 class UserLogin extends Component{
@@ -59,6 +60,7 @@ class UserLogin extends Component{
                                         <a href = "/ViewUserRegister" onClick={this.login} className="anquerTagNewUser">New User?</a>
                                         <Col>
                                             <Login />
+                                            {/* <Logout /> */}
                                         </Col>
                                         </div>
                                     
