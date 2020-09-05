@@ -13,6 +13,7 @@ import { Card } from "react-bootstrap";
 import "./UserLogin.scss";
 import Login from './Login';
 import Recaptcha from './Recaptcha';
+import Logout from './Logout';
 
 
 class UserLogin extends Component{

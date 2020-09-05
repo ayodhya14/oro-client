@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { GoogleLogin } from 'react-google-login';
 
+import "./Login.scss";
+
 const clientId = '96012022962-kl09sfnr1noq3q1lt93g3i7bmmrr8n2p.apps.googleusercontent.com';
 
 
@@ -23,8 +25,9 @@ class Login extends Component {
             };
         
             return (
-                <div className="row" style={{float: "right", marginRight: "2%"}}>
+                <div className="row">
                     <GoogleLogin
+                        className="google-btn"
                         clientId={clientId}
                         buttonText="Login with Google"
                         onSuccess={onSuccess}
