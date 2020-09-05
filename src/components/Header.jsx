@@ -65,8 +65,8 @@ class Header extends Component{
                     
                             {/* <Col>
                                 <Login />
-                            </Col>
-                            <Col>
+                            </Col> */}
+                            {/* <Col>
                                 <Logout />
                             </Col> */}
                         </Row>
