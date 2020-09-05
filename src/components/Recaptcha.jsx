@@ -5,9 +5,7 @@ class Recaptcha extends Component {
     render() {
       return (
         <div>
-          <RecaptchaComp
-            sitekey="6Lf0CcgZAAAAANiCceGbwHBnV392KX1xlt0zoH_G"
-          />
+          <RecaptchaComp sitekey="6Lf0CcgZAAAAANiCceGbwHBnV392KX1xlt0zoH_G"/>
         </div>
       );
     };
