@@ -90,10 +90,11 @@ class Cart extends Component{
                                                 <tr>
                                                     <td className="tableBodyData">{index + 1}</td>
                                                     <td>
-                                                        <Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail  />
+                                                    <a href = "/ViewSingleProduct"><Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail  /></a>
                                                     </td>
-                                                    <td className="tableBodyData">{item.name}</td>
-                                                    <td className="tableBodyData">{item.qty}</td>
+                                                    <td className="tableBodyData"><a href = "/ViewSingleProduct">{item.name}</a></td>
+                                                    {/* need color change to black */}
+                                                    <td className="tableBodyData" style = {{color: "black" }}>{item.qty}</td>
                                                     <td className="tableBodyData">{item.price}</td>
                                                     <td className="tableBodyData">{item.subTotal}</td>
                                                     <td className="tableBodyData">
