@@ -4,7 +4,6 @@ import Header from "./Header";
 
 import MainSlider from "./MainSlider";
 import ProductList from "./ProductList";
-import Cart from "./Cart"; 
 
 import "./Home.scss";
 

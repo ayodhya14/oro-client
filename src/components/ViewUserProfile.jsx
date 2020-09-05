@@ -4,7 +4,7 @@ import Header from "./Header";
 
 import MainSlider from "./MainSlider";
 import ProductList from "./ProductList";
-import GoogleBtn from './GoogleBtn';
+// import GoogleBtn from './GoogleBtn';
 
 import Login from './Login';
 import Logout from './Logout';

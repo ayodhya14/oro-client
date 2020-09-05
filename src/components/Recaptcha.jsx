@@ -9,7 +9,7 @@ class Recaptcha extends Component {
     }
 
     verifyCallback = (recaptchaToken) => {
-      // Here you will get the final recaptchaToken!
+      // Here you will get the final recaptchaToken!!!  
       console.log(recaptchaToken, "<= your recaptcha token")
     }
   
