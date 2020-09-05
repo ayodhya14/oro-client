@@ -12,12 +12,85 @@ import Image from 'react-bootstrap/Image';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
+import Axios from "axios";
 import "./Checkout.scss";
 
 class Checkout extends Component{
-    constructor(props) {
-        super(props)
-        this.state = {
+    constructor(props){
+        super(props);
+        
+// //Bind Order feilds to Input form
+//     this.onChangeUserId = this.onChangeUserId.bind(this);
+//     this.onChangeProductId = this.onChangeProductId.bind(this);
+//     this.onChangeQuantity = this.onChangeQuantity.bind(this);
+//     this.onChangeSubTotal = this.onChangeSubTotal.bind(this);
+//     this.onChangeTotal = this.onChangeTotal.bind(this);
+//     this.onChangeDate = this.onChangeDatel.bind(this);
+//     this.saveOrder = this.saveOrder.bind(this);
+   
+//     this.state = { 
+//         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
+//     }
+// }
+// onChangeUserId(e){
+//     this.setState({ userId: e.target.value});
+// }
+
+// onChangeProductId(e){
+//     this.setState({ productId: e.target.value});
+// }
+
+// onChangeQuantity(e){
+//     this.setState({ qty: e.target.value});
+// }
+
+// onChangeSubTotal(e){
+//     this.setState({ subTotal: e.target.value});
+// }
+
+// onChangeTotal(e){
+//     this.setState({ total: e.target.value});
+// }
+
+// onChangeDate(e){
+//     this.setState({ date: e.target.value});
+// }
+
+//   submitUser(){
+//       const obj = {
+//           userId: this.state.userId,
+//           productId: this.state.productId,
+//           qty: this.state.qty,
+//           subTotal: this.state.subTotal,
+//           total: this.state.total,
+//           date: this.state.date,
+//       };
+//       Axios.post('http://localhost:5000/api/orders/', obj).then(res => console.log(res.data));
+ 
+//       this.setState({
+//         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
+//       });   
+//   }
+
+//   componentDidMount(){
+//       Axios.get('http://localhost:5000/api/orders/').then(response =>{
+//           this.setState({
+//               userId: response.date.userId,
+//               productId: response.date.productId,
+//               qty: response.date.qty,
+//               subTotal: response.date.subTotal,
+//               total: response.date.total,
+//               date: response.date.date,
+//           });
+//           console.log(response.data)
+//       })
+//       .catch(function (error){
+//           console.log(error);
+//       });
+ 
+ 
+ 
+      this.state = {
             price: "",
             qty: "",
             paymentType: "Payment Type",
@@ -39,7 +112,7 @@ class Checkout extends Component{
                     image: "https://i.pinimg.com/originals/eb/95/d3/eb95d3eafbf6d85ec230c13eedcbd8db.png",
                     name: "Pin on Women jewelry",
                     price: 3000,
-                    subTotal: 3000,
+                    // subTotal: ,
                     qty: 1
                 },
                 {
@@ -54,16 +127,29 @@ class Checkout extends Component{
         };
     }
 
-    calculatePayment = () => {
+    CalculateSubTotalPayment =  () => {
+      let qty = 0;
+      let subTotal = 0; 
+      for(let y = 0; y < this.state.tableData.length; y++) {
+          subTotal =  this.state.tableData[y].subTotal * qty;
+      }
+      this.setState({
+        subTotal: subTotal
+    });
+    }
+
+
+
+    calculateTotalPayment = () => {
         let price = 0;
-        let qty = 0;
+        // let qty = 0;
         for (let x = 0; x < this.state.tableData.length; x++) {
             price = this.state.tableData[x].subTotal + price;
-            qty = this.state.tableData[x].qty + qty;
+            // qty = this.state.tableData[x].qty + qty;
         }
         this.setState({
             price: price,
-            qty: qty
+            // qty: qty
         });
     };
 
@@ -80,8 +166,9 @@ class Checkout extends Component{
     render() {
         return(
             <div className = "ParentClassCheckout">
-                {this.state.price == "" ? this.calculatePayment() : null}
-                <Card className = "card">
+                {/* {this.state.price == "" ? this.calculateSubTotalPayment() : null} */}
+                {this.state.price == "" ? this.calculateTotalPayment() : null}
+                <Card className = "card" onSubmit={this.saveOrder}>
                     <Row xs={1} sm={1} md={2} lg={2}>
                         <Col xs={12} sm={12} md={8} lg={8}>
                             <div className="headingClass">

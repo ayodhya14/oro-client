@@ -12,13 +12,76 @@ import { Card } from "react-bootstrap";
 
 import Login from './Login';
 import "./UserRegister.scss";
+import Axios from "axios";
 
 class UserRegister extends Component{
-    
-    state = {
-        
-    };
-  
+    constructor(props){
+        super(props);
+
+//Bind User feilds to the Input form
+    this.onChangeFirstName = this.onChangeFirstName.bind(this);
+    this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeGender = this.onChangeGender.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    this.submitUser = this.submitUser.bind(this);
+   
+    this.state = { 
+        firstName: '', lastName: '', gender: '', email: '', password: ''
+    }
+}
+onChangeFirstName(e){
+    this.setState({ firstName: e.target.value});
+}
+
+onChangeLastName(e){
+    this.setState({ lastName: e.target.value});
+}
+
+onChangeGender(e){
+    this.setState({ gender: e.target.value});
+}
+
+onChangeEmail(e){
+    this.setState({ email: e.target.value});
+}
+
+onChangePassword(e){
+    this.setState({ password: e.target.value});
+}
+
+  submitUser(){
+      const obj = {
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          gender: this.state.gender,
+          email: this.state.email,
+          password: this.state.password,
+      };
+      Axios.post('http://localhost:5000/api/users/', obj).then(res => console.log(res.data));
+ 
+      this.setState({
+        firstName: '', lastName: '', gender: '', email: '', password: ''
+      });   
+  }
+
+  componentDidMount(){
+      Axios.get('http://localhost:5000/api/users/').then(response =>{
+          this.setState({
+              firstName: response.date.firstName,
+              lastName: response.date.lastName,
+              gender: response.date.gender,
+              email: response.date.email,
+              password: response.date.password,
+          });
+          console.log(response.data)
+      })
+      .catch(function (error){
+          console.log(error);
+      });
+  }
+
+
   render() {
     return (
         <div className = "UserRegisterParentClass">
@@ -32,31 +95,31 @@ class UserRegister extends Component{
                     <Card className = "RegisterCardBody card" border="warning">
                         <Row>
                             <Col xs={12} sm={12} md={12} lg={12}>                                    
-                            <Form>
+                            <Form onSubmit={this.submitUser}>
                                 <Form.Row>
                                     <Form.Group as={Col} md="4">
                                     <Form.Label>First name</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="First name"
+                                    <Form.Control className = "from-control"  type="String" value={this.state.firstName} onChange={this.onChangeFirstName}
+                                        // type="text"
+                                        // placeholder="First name"
                                     />
                                     </Form.Group>
 
                                     <Form.Group as={Col} md="4">
                                     <Form.Label>Last name</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Last name"
+                                    <Form.Control className = "from-control"  type="String" value={this.state.lastName} onChange={this.onChangeLastName}
+                                        // type="text"
+                                        // placeholder="Last name"
                                     />
                                     </Form.Group>
 
                                     <Form.Group as={Col}>
                                         
                                     <Form.Label>Gender</Form.Label>
-                                    <Form.Control  as="select"
-                                            className="mr-sm-2"
-                                            id="inlineFormCustomSelect"
-                                            custom
+                                    <Form.Control  as="select" className = "from-control"  type="String" value={this.state.gender} onChange={this.onChangeGender}
+                                            // className="mr-sm-2"
+                                            // id="inlineFormCustomSelect"
+                                            // custom
                                         >
                                             <option value="0">Choose...</option>
                                             <option value="1">Male</option>
@@ -69,12 +132,12 @@ class UserRegister extends Component{
                                 <Form.Row>
                                     <Form.Group as={Col} md="8">
                                     <Form.Label>Email</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter Email"/>
+                                    <Form.Control placeholder="Enter Email" className = "from-control"  type="email" value={this.state.email} onChange={this.onChangeEmail}/>
                                     </Form.Group>
 
                                     <Form.Group as={Col}>
                                     <Form.Label>Create Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Create Your Password" />
+                                    <Form.Control placeholder="Create Your Password"  className = "from-control"  type="password" value={this.state.password} onChange={this.onChangePassword}/>
                                     </Form.Group>
 
                                 </Form.Row>

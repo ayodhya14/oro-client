@@ -14,13 +14,55 @@ import "./UserLogin.scss";
 import Login from './Login';
 import Recaptcha from './Recaptcha';
 import Logout from './Logout';
-
+import Axios from "axios";
 
 class UserLogin extends Component{
-   
-    state = {
+       constructor(props){
+        super(props);
         
-      };
+// //Bind Login feilds to Input form
+//     this.onChangeUserId = this.onChangeUserId.bind(this);
+//     this.onChangeProductId = this.onChangeProductId.bind(this);
+//     this.onChangeQuantity = this.onChangeQuantity.bind(this);
+   
+   
+//     this.state = { 
+//         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
+//     }
+// }
+// onChangeUserId(e){
+//     this.setState({ userId: e.target.value});
+// }
+
+// onChangeProductId(e){
+//     this.setState({ productId: e.target.value});
+// }
+
+//   submitUser(){
+//       const obj = {
+//           userId: this.state.userId,
+//           productId: this.state.productId
+         
+//       };
+//       Axios.post('http://localhost:5000/api/usersLogin/', obj).then(res => console.log(res.data));
+ 
+//       this.setState({
+//         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
+//       });   
+//   }
+
+//   componentDidMount(){
+//       Axios.get('http://localhost:5000/api/usersLogin/').then(response =>{
+//           this.setState({
+//               userId: response.date.userId,
+//               productId: response.date.productId,
+//           });
+//           console.log(response.data)
+//       })
+//       .catch(function (error){
+//           console.log(error);
+//       });
+    }
     
     render() { 
         return (

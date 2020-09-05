@@ -8,6 +8,7 @@ import ViewCheckout from './components/ViewCheckout.jsx';
 import ViewUserLogin from './components/ViewUserLogin.jsx';
 import ViewUserRegister from './components/ViewUserRegister.jsx';
 import ViewUserProfile from './components/ViewUserProfile.jsx';
+import ViewSingleProduct from './components/ViewSingleProduct.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/Search.jsx';
@@ -23,6 +24,7 @@ ReactDOM.render(<BrowserRouter>
     <Route exact path="/viewUserLogin" component={ViewUserLogin} />
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
     <Route exact path="/viewUserProfile" component={ViewUserProfile} />
+    <Route exact path="/viewSingleProduct" component={ViewSingleProduct} />
     
   </BrowserRouter>,
  document.getElementById('root'));
