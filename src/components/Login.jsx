@@ -25,7 +25,7 @@ class Login extends Component {
             };
         
             return (
-                <div className="row">
+                <div>
                     <GoogleLogin
                         className="google-btn"
                         clientId={clientId}

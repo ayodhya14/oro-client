@@ -1,14 +1,20 @@
 .anquerTagNewUser {
-    color: #007bff !important;
+  color: #007bff !important;
 }
 
 .anquerTagNewUser:hover {
   color: #adadad !important;
 }
 
+.parentClassForAnqure {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
 .card {
-    margin: 0% 2% 0% 2%;
-    padding: 15px;
+  margin: 0% 2% 0% 2%;
+  padding: 15px;
 }
 
 .loginHeadingClass {
