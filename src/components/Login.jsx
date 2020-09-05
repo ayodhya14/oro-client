@@ -17,7 +17,7 @@ class Login extends Component {
             let imageUrl = res.profileObj.imageUrl;
             console.log(imageUrl);
             this.setState({userName: name});
-                
+            window.location.href = "http://localhost:3000/";                
             };
         
             const onFailure = (res) => {
