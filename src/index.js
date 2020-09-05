@@ -21,5 +21,6 @@ ReactDOM.render(<BrowserRouter>
     <Route exact path="/viewCheckout" component={ViewCheckout} />
     <Route exact path="/viewUserLogin" component={ViewUserLogin} />
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
+    
   </BrowserRouter>,
  document.getElementById('root'));

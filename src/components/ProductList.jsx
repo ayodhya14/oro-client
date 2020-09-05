@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import Product from './Product';
-import "./ProductList.scss";
-
 import axios from "axios";
-
+import "./ProductList.scss";
 
 class ProductList extends Component {
 
@@ -30,7 +27,6 @@ class ProductList extends Component {
                         <Button onClick={() => this.categoryFilterFunction('Pendent')} style={{ width: "10%", borderRadius: 0, borderTopRightRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">Pendent</Button>
                     </Col>
                 </Row>
-
                 <Row xs={1} sm={2} md={3} lg={4}>
                     {this.state.allProducts.map((product, index) => (
                         <Col xs={12} sm={6} md={4} lg={3} key={index}>
@@ -41,7 +37,6 @@ class ProductList extends Component {
                         </Col>
                     ))}
                 </Row>
-                
             </div>
         );
     }

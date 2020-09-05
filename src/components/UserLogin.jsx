@@ -12,6 +12,7 @@ import { Card } from "react-bootstrap";
 
 import "./UserLogin.scss";
 import Login from './Login';
+import Recaptcha from './Recaptcha';
 
 
 class UserLogin extends Component{
@@ -57,9 +58,14 @@ class UserLogin extends Component{
 
                                         <div className = ""> 
                                         <a href = "/ViewUserRegister" onClick={this.login} className="anquerTagNewUser">New User?</a>
-                                        <Col>
-                                            <Login />
-                                        </Col>
+                                        <Row xs={2} sm={2} md={2} lg={2}>
+                                            <Col>
+                                                <Recaptcha />
+                                            </Col>
+                                            <Col>
+                                                <Login />
+                                            </Col>
+                                        </Row>
                                         </div>
                                     
                                     </Form>    
