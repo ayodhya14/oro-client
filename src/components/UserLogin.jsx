@@ -53,22 +53,24 @@ class UserLogin extends Component{
                                             <Form.Check type="checkbox" label="Remember user details" />
                                         </Form.Group>
 
+
+                                        <div className = ""> 
+                                            <Row xs={2} sm={2} md={2} lg={2}>
+                                                <Col>
+                                                    <Recaptcha />
+                                                </Col>
+                                                <Col>
+                                                    <Login />
+                                                </Col>
+                                            </Row>
+                                        </div>
+                                        <br/>
                                         <Button variant="warning" type="submit" style= {{ width: "100%"}} >
                                             Login
                                         </Button>
-
-                                        <div className = ""> 
-                                        <a href = "/ViewUserRegister" onClick={this.login} className="anquerTagNewUser">New User?</a>
-                                        <Row xs={2} sm={2} md={2} lg={2}>
-                                            <Col>
-                                                <Recaptcha />
-                                            </Col>
-                                            <Col>
-                                                <Login />
-                                            </Col>
-                                        </Row>
+                                        <div className="parentClassForAnqure">
+                                            <a href = "/ViewUserRegister" onClick={this.login} className="anquerTagNewUser">New User?</a>
                                         </div>
-                                    
                                     </Form>    
                                 </Col>    
                             </Row>   
