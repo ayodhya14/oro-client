@@ -46,7 +46,7 @@ class Header extends Component{
                                         <input
                                             type="search"
                                             ref="searchBox"
-                                            placeholder="Search for Jewellery"
+                                            placeholder="Search for Jewellery by Name"
                                             className="search-keyword"
                                             onChange={(event)=> this.props.onChange(event.target.value)}
                                         />

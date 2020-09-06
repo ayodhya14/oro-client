@@ -12,7 +12,7 @@ import { Card } from "react-bootstrap";
 
 import Login from './Login';
 import "./UserRegister.scss";
-import Axios from "axios";
+import axios from "axios";
 
 class UserRegister extends Component{
     constructor(props){
@@ -60,40 +60,38 @@ onChangePassword(e){
     this.setState({ password: e.target.value});
 }
 
-  submitUser(){
-      const obj = {
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          gender: this.state.gender,
-          mobile: this.state.mobile,
-          address: this.state.address,
-          email: this.state.email,
-          password: this.state.password,
-      };
-      Axios.post('http://localhost:5000/api/users/', obj).then(res => console.log(res.data));
- 
-      this.setState({
-        firstName: '', lastName: '', gender: '', mobile: '', address: '', email: '', password: ''
-      });   
-  }
+submitUser = event => {
+    event.preventDefault();
 
-  componentDidMount(){
-      Axios.get('http://localhost:5000/api/users/').then(response =>{
-          this.setState({
-              firstName: response.date.firstName,
-              lastName: response.date.lastName,
-              gender: response.date.gender,
-              mobile: response.date.mobile,
-              address: response.date.address,
-              email: response.date.email,
-              password: response.date.password,
-          });
-          console.log(response.data)
-      })
-      .catch(function (error){
-          console.log(error);
-      });
-  }
+    const obj = {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        gender: this.state.gender,
+        mobile: this.state.mobile,
+        address: this.state.address,
+        email: this.state.email,
+        password: this.state.password,
+    };
+
+
+    // append '+' mark to the mobile number.
+    let val = obj.mobile.slice(2);
+    let val2 = obj.mobile.slice(1);
+    let val1 = obj.mobile.split(val)[0];
+    let val3 = obj.mobile.split(val2)[0];
+    if (val1 == "94") {
+        obj.mobile = "+" + obj.mobile;
+    } else if (val3 == "0") {
+        obj.mobile = "+94" + val2;
+    } else {
+        obj.mobile = "+94" + obj.mobile;
+    }
+
+    axios.post(`http://localhost:5000/api/users/`, obj)
+        .then(res => {
+        console.log(res);
+    })
+}
 
   render() {
     return (
@@ -141,51 +139,42 @@ onChangePassword(e){
                                     </Form.Control>
                                     </Form.Group>
                                 </Form.Row>
-
                                 <Form.Row>
                                     <Form.Group as={Col} md="8">
-                                    <Form.Label>Address</Form.Label>
-                                    <Form.Control placeholder="Enter Address" className = "from-control"  type="String" value={this.state.address} onChange={this.onChangeAddress}/>
+                                        <Form.Label>Address</Form.Label>
+                                        <Form.Control placeholder="Enter Address" className = "from-control"  type="String" value={this.state.address} onChange={this.onChangeAddress}/>
                                     </Form.Group>
 
                                     <Form.Group as={Col}>
-                                    <Form.Label>Mobile</Form.Label>
-                                    <Form.Control placeholder="+94 (00 000 0000)"  className = "from-control"  type="Number" value={this.state.mobile} onChange={this.onChangeMobile}/>
+                                        <Form.Label>Mobile</Form.Label>
+                                        <Form.Control placeholder="+94 (00 000 0000)"  className = "from-control"  type="Number" value={this.state.mobile} onChange={this.onChangeMobile}/>
                                     </Form.Group>
-
                                 </Form.Row>
-
                                 <Form.Row>
                                     <Form.Group as={Col} md="8">
-                                    <Form.Label>Email</Form.Label>
-                                    <Form.Control placeholder="Enter Email" className = "from-control"  type="email" value={this.state.email} onChange={this.onChangeEmail}/>
+                                        <Form.Label>Email</Form.Label>
+                                        <Form.Control placeholder="Enter Email" className = "from-control"  type="email" value={this.state.email} onChange={this.onChangeEmail}/>
                                     </Form.Group>
-
                                     <Form.Group as={Col}>
-                                    <Form.Label>Create Password</Form.Label>
-                                    <Form.Control placeholder="Create Your Password"  className = "from-control"  type="password" value={this.state.password} onChange={this.onChangePassword}/>
+                                        <Form.Label>Create Password</Form.Label>
+                                        <Form.Control placeholder="Create Your Password"  className = "from-control"  type="password" value={this.state.password} onChange={this.onChangePassword}/>
                                     </Form.Group>
-
                                 </Form.Row>
-
                                 <Form.Group>
                                     <Form.Check
-                                    label="Agree to terms and conditions"
-                                    feedback="You must agree before submitting."
+                                        label="Agree to terms and conditions"
+                                        feedback="You must agree before submitting."
                                     />
                                 </Form.Group>
-
                                 <Button variant="warning" type="submit" style= {{ width: "100%"}} >
-                                        Register
+                                    Register
                                 </Button>
-
                                     {/* <div className = "UserRegisterClass" > 
                                     <span><a  href = "/ViewUserLogin" onClick={this.login} className="anquerTagExistingUser">Already have an account?</a></span>
                                     <Col>
                                         <Login />
                                     </Col>
                                     </div> */}
-
                                 </Form>    
                             </Col>    
                         </Row>   
