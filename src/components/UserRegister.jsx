@@ -22,12 +22,14 @@ class UserRegister extends Component{
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangeGender = this.onChangeGender.bind(this);
+    this.onChangeMobile = this.onChangeMobile.bind(this);
+    this.onChangeAddress = this.onChangeAddress.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.submitUser = this.submitUser.bind(this);
    
     this.state = { 
-        firstName: '', lastName: '', gender: '', email: '', password: ''
+        firstName: '', lastName: '', gender: '', mobile: '', address: '', email: '', password: ''
     }
 }
 onChangeFirstName(e){
@@ -40,6 +42,14 @@ onChangeLastName(e){
 
 onChangeGender(e){
     this.setState({ gender: e.target.value});
+}
+
+onChangeMobile(e){
+    this.setState({ mobile: e.target.value});
+}
+
+onChangeAddress(e){
+    this.setState({ address: e.target.value});
 }
 
 onChangeEmail(e){
@@ -55,13 +65,15 @@ onChangePassword(e){
           firstName: this.state.firstName,
           lastName: this.state.lastName,
           gender: this.state.gender,
+          mobile: this.state.mobile,
+          address: this.state.address,
           email: this.state.email,
           password: this.state.password,
       };
       Axios.post('http://localhost:5000/api/users/', obj).then(res => console.log(res.data));
  
       this.setState({
-        firstName: '', lastName: '', gender: '', email: '', password: ''
+        firstName: '', lastName: '', gender: '', mobile: '', address: '', email: '', password: ''
       });   
   }
 
@@ -71,6 +83,8 @@ onChangePassword(e){
               firstName: response.date.firstName,
               lastName: response.date.lastName,
               gender: response.date.gender,
+              mobile: response.date.mobile,
+              address: response.date.address,
               email: response.date.email,
               password: response.date.password,
           });
@@ -80,7 +94,6 @@ onChangePassword(e){
           console.log(error);
       });
   }
-
 
   render() {
     return (
@@ -101,7 +114,7 @@ onChangePassword(e){
                                     <Form.Label>First name</Form.Label>
                                     <Form.Control className = "from-control"  type="String" value={this.state.firstName} onChange={this.onChangeFirstName}
                                         // type="text"
-                                        // placeholder="First name"
+                                        placeholder="First Name"
                                     />
                                     </Form.Group>
 
@@ -109,7 +122,7 @@ onChangePassword(e){
                                     <Form.Label>Last name</Form.Label>
                                     <Form.Control className = "from-control"  type="String" value={this.state.lastName} onChange={this.onChangeLastName}
                                         // type="text"
-                                        // placeholder="Last name"
+                                        placeholder="Last Name"
                                     />
                                     </Form.Group>
 
@@ -127,7 +140,22 @@ onChangePassword(e){
                                             <option value="3">Other</option> 
                                     </Form.Control>
                                     </Form.Group>
-                                    </Form.Row>
+                                </Form.Row>
+
+                                <Form.Row>
+                                    <Form.Group as={Col} md="8">
+                                    <Form.Label>Address</Form.Label>
+                                    <Form.Control placeholder="Enter Address" className = "from-control"  type="String" value={this.state.address} onChange={this.onChangeAddress}/>
+                                    </Form.Group>
+
+                                    <Form.Group as={Col}>
+                                    <Form.Label>Mobile</Form.Label>
+                                    <Form.Control placeholder="+94 (00 000 0000)"  className = "from-control"  type="Number" value={this.state.mobile} onChange={this.onChangeMobile}/>
+                                    </Form.Group>
+
+                                </Form.Row>
+
+
 
                                 <Form.Row>
                                     <Form.Group as={Col} md="8">
