@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import "./Cart.scss";
+import "./Login.scss";
 
 class Checkout extends Component{
     constructor(props) {
@@ -76,10 +76,6 @@ class Checkout extends Component{
         });
     };
 
-    onClickRemoveItem = (id) => {
-        alert(id);
-    };
-
     handlePaymentType = (str) => {
         this.setState({
             paymentType: str
@@ -104,10 +100,12 @@ class Checkout extends Component{
                                                 <tr>
                                                     <td className="tableBodyData">{index + 1}</td>
                                                     <td>
-                                                    <a href = "/ViewSingleProduct"><Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail  /></a>
+                                                        <a href = "/ViewSingleProduct">
+                                                            <Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail />
+                                                        </a>
                                                     </td>
                                                     <td className="tableBodyData">{item.date}</td>
-                                                    <td className="tableBodyData"><a href = "/ViewSingleProduct">{item.name}</a></td>
+                                                    <td className="tableBodyData"><a classname="tableAnqureTag" href = "/ViewSingleProduct">{item.name}</a></td>
                                                     <td className="tableBodyData">{item.qty}</td>
                                                     <td className="tableBodyData">{item.price}</td>
                                                     <td className="tableBodyData">{item.subTotal}</td>

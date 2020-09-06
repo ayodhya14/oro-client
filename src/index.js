@@ -21,7 +21,7 @@ ReactDOM.render(<BrowserRouter>
     <Route exact path="/viewCheckout" component={ViewCheckout} />
     <Route exact path="/viewUserLogin" component={ViewUserLogin} />
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
-    <Route exact path="/tabView" component={TabView} />
+    <Route exact path="/User Profile" component={TabView} />
     <Route exact path="/viewSingleProduct" component={ViewSingleProduct} />
     
   </BrowserRouter>,

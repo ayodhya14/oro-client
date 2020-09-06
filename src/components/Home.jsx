@@ -15,7 +15,6 @@ function Home() {
     let [term, setTerm] = useState('');
     let [productId, setId] = useState('');
 
-
     return (
         <div className="homePage_parentDiv">
             <div className="mainHeaderClass">
@@ -35,11 +34,7 @@ function Home() {
                 <Footer />
             </div>
         </div>
-
     );
-
-
-
 }
 
 export default Home;
