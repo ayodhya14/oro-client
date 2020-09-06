@@ -33,58 +33,36 @@ class Header extends Component{
                         </div>
                     </Col>
                     <Col xs={9} sm={10} md={10} lg={10}>
-                        <Row>
-                            {/* <div className="searchWidget">
-                                <InputGroup className="mb-3">
-                                    <FormControl
-                                        onChange={this.handleSearchChange}
-                                        placeholder="Search by product name"
-                                        aria-label="Search by product name"
-                                        aria-describedby="basic-addon2"
-                                    />
-                                    <InputGroup.Append>
-                                    <a href = "/search"><Button variant="warning" onClick={() => this.setSearch()}> Search </Button></a>
-                                    </InputGroup.Append>
-                                </InputGroup>
-                            </div> */}
-                            <div className="search">
-                                <form
-                                    action="#"
-                                    method="get"
-                                    className={
-                                        "search-form active"
-                                    }
-                                >
-                                    <input
-                                        type="search"
-                                        ref="searchBox"
-                                        placeholder="Search for Jewellery"
-                                        className="search-keyword"
-                                        onChange={(event)=> this.props.onChange(event.target.value)}
-                                    />
-                                    
-                                </form>
-                            </div>
-                        </Row>
-                        <Row style={{ marginTop: "2vh" }}>
-                            <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
+                        <Row style={{ marginTop: "60px" }}>
+                            <Col xs={6} sm={6} md={6} lg={6} className="headerLinks">
+                                <div className="search">
+                                    <form
+                                        action="#"
+                                        method="get"
+                                        className={
+                                            "search-form active"
+                                        }
+                                    >
+                                        <input
+                                            type="search"
+                                            ref="searchBox"
+                                            placeholder="Search for Jewellery"
+                                            className="search-keyword"
+                                            onChange={(event)=> this.props.onChange(event.target.value)}
+                                        />
+                                        
+                                    </form>
+                                </div>
+                            </Col>
+                            <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
                                 <a className="link" href="/ViewUserLogin">Login</a>
-                                {/* <a className="link" href="/ViewUserRegister">Register</a> */}
                             </Col>
-                            <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                Mobile:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>
+                            <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
+                                <a className="link" href="/TabView" >Profile</a>
                             </Col>
-                            <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                                Email:&nbsp;&nbsp;<a className="link" href="/">oro.jewelleries@yahoo.com</a>
+                            <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
+                                <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
                             </Col>
-                            <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
-                            <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
-                            <a className="link" href="/TabView" >Account</a>
-                            </Col>  
-                    
-                            {/* <Col>
-                                <Login />
-                            </Col> */}
                             {/* <Col>
                                 <Logout />
                             </Col> */}

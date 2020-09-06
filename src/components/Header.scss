@@ -4,6 +4,7 @@
 
 .OROLogo {
     width: 20vh;
+    padding-top: 10px;
 }
 
 .searchWidget {
@@ -24,9 +25,6 @@ a:hover {
 }
 //Search box
 .search {
-    margin-left: 64px;
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
     @media (max-width: 767px) {
       margin-left: 32px;
     }
@@ -37,8 +35,6 @@ a:hover {
     }
   }
   .search-form {
-    display: flex;
-    display: -webkit-flex;
     @media (max-width: 480px) {
       display: none;
       position: absolute;
@@ -54,12 +50,10 @@ a:hover {
       }
     }
     .search-keyword {
-      height: 36px;
+      height: 40px;
       border: 1px solid black;
       padding: 0 16px;
-      border-radius: 2px 0 0 2px;
       width: 100%;
-      max-width: 330px;
       &:focus {
         outline: none;
       }
