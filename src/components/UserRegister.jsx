@@ -73,7 +73,6 @@ submitUser = event => {
         password: this.state.password,
     };
 
-
     // append '+' mark to the mobile number.
     let val = obj.mobile.slice(2);
     let val2 = obj.mobile.slice(1);
@@ -147,7 +146,7 @@ submitUser = event => {
 
                                     <Form.Group as={Col}>
                                         <Form.Label>Mobile</Form.Label>
-                                        <Form.Control placeholder="+94 (00 000 0000)"  className = "from-control"  type="Number" value={this.state.mobile} onChange={this.onChangeMobile}/>
+                                        <Form.Control placeholder="+94 (00 000 0000)"  className = "from-control" max="10" type="Number" value={this.state.mobile} onChange={this.onChangeMobile}/>
                                     </Form.Group>
                                 </Form.Row>
                                 <Form.Row>

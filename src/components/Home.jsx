@@ -21,23 +21,19 @@ function Home() {
             <div className="mainHeaderClass">
                 <Header onChange={(value) => setTerm(value)} />
             </div>
-            <div className="mainSliderClass">
+            {/* <div className="mainSliderClass">
                 <MainSlider />
-            </div>
-            {/* <div className = "mainProductListClass">
-                    <ProductList term={term} onClick={(value)=> setId(value)} />
-                </div> */}
+            </div> */}
             <div className = "mainProductListClass">
                 {
                     !(productId) ?
-                        <div className="mainProductListClass"><ProductList term={term} onClick={(value) => setId(value)} /></div> :
+                        <div><div className="mainSliderClass"><MainSlider /></div><div className="mainProductListClass"><ProductList term={term} onClick={(value) => setId(value)} /></div></div> :
                         <div className="SingleProductParentClass"><SingleProduct  id={productId} /> </div>
                 }
             </div>
             <div className="mainFooterClass">
                 <Footer />
             </div>
-
         </div>
 
     );
