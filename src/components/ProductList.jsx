@@ -51,7 +51,7 @@ class ProductList extends Component {
         //     this.dynamicSearch();
         // }
         if(prevProps.term !== this.props.term){
-            this.allProducts();
+            this.dynamicSearch();
         }
     }
     async allProducts() {
@@ -70,14 +70,11 @@ class ProductList extends Component {
             };
         });
         this.setState({ allProducts: products });
-        this.dynamicSearch()
         
-
-
     }
 
-    dynamicSearch() {
-
+    async dynamicSearch() {
+        await this.allProducts();
         console.log("term is");
         console.log(this.props.term);
 
