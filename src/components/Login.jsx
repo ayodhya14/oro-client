@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 import "./Login.scss";
 
 const clientId = '96012022962-kl09sfnr1noq3q1lt93g3i7bmmrr8n2p.apps.googleusercontent.com';
+const appId = '1798874110260550';
 
 
 class Login extends Component {
@@ -17,15 +19,27 @@ class Login extends Component {
             let imageUrl = res.profileObj.imageUrl;
             console.log(imageUrl);
             this.setState({userName: name});
-            window.location.href = "http://localhost:3000/";                
+            // window.location.href = "http://localhost:3000/";                
             };
         
             const onFailure = (res) => {
                 console.log('[Login Failed] res:', res);
             };
+
+            const facebookResponse = (res) => {
+                console.log(res);
+                let name = res.name;
+                this.setState({userName: name});
+            };
         
             return (
                 <div>
+                    <FacebookLogin
+                        appId={appId}
+                        autoLoad={false}
+                        fields="name,email,picture"
+                        callback={facebookResponse} />
+
                     <GoogleLogin
                         className="google-btn"
                         clientId={clientId}
