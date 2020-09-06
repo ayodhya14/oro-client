@@ -54,7 +54,10 @@ class Header extends Component{
                                 </div>
                             </Col>
                             <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
-                                <a style={{color: "#fefefe"}} href="/ViewUserLogin">Login</a>
+                                {
+                                    !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">Login</a> : <Logout />
+                                }
+                                {/* <a style={{color: "#fefefe"}} href="/ViewUserLogin">Login</a> */}
                             </Col>
                             <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
                                 <a style={{color: "#fefefe"}} href="/User Profile" >Profile</a>
@@ -63,9 +66,9 @@ class Header extends Component{
                                 <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
                             </Col>
                         </Row>
-                        <Col>
+                        {/* <Col>
                             <Logout />
-                        </Col>
+                        </Col> */}
                     </Col>
                 </Row>
             </div>

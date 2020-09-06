@@ -106,75 +106,69 @@ submitUser = event => {
                     <Card className = "RegisterCardBody card" border="warning">
                         <Row>
                             <Col xs={12} sm={12} md={12} lg={12}>                                    
-                            <Form onSubmit={this.submitUser}>
-                                <Form.Row>
-                                    <Form.Group as={Col} md="4">
-                                    <Form.Label>First name</Form.Label>
-                                    <Form.Control className = "from-control"  type="String" value={this.state.firstName} onChange={this.onChangeFirstName}
-                                        // type="text"
-                                        placeholder="First Name"
-                                    />
-                                    </Form.Group>
+                                <Form onSubmit={this.submitUser}>
+                                    <Form.Row>
+                                        <Form.Group as={Col} md="4">
+                                        <Form.Label>First name</Form.Label>
+                                        <Form.Control className = "from-control"  type="String" value={this.state.firstName} onChange={this.onChangeFirstName}
+                                            // type="text"
+                                            placeholder="First Name"
+                                        />
+                                        </Form.Group>
 
-                                    <Form.Group as={Col} md="4">
-                                    <Form.Label>Last name</Form.Label>
-                                    <Form.Control className = "from-control"  type="String" value={this.state.lastName} onChange={this.onChangeLastName}
-                                        // type="text"
-                                        placeholder="Last Name"
-                                    />
-                                    </Form.Group>
+                                        <Form.Group as={Col} md="4">
+                                        <Form.Label>Last name</Form.Label>
+                                        <Form.Control className = "from-control"  type="String" value={this.state.lastName} onChange={this.onChangeLastName}
+                                            // type="text"
+                                            placeholder="Last Name"
+                                        />
+                                        </Form.Group>
 
-                                    <Form.Group as={Col}>
-                                        
-                                    <Form.Label>Gender</Form.Label>
-                                    <Form.Control  as="select" className = "from-control"  type="String" value={this.state.gender} onChange={this.onChangeGender}
-                                            // className="mr-sm-2"
-                                            // id="inlineFormCustomSelect"
-                                            // custom
-                                        >
-                                            <option value="0">Choose...</option>
-                                            <option value="1">Male</option>
-                                            <option value="2">Female</option>
-                                            <option value="3">Other</option> 
-                                    </Form.Control>
-                                    </Form.Group>
-                                </Form.Row>
-                                <Form.Row>
-                                    <Form.Group as={Col} md="8">
-                                        <Form.Label>Address</Form.Label>
-                                        <Form.Control placeholder="Enter Address" className = "from-control"  type="String" value={this.state.address} onChange={this.onChangeAddress}/>
-                                    </Form.Group>
+                                        <Form.Group as={Col}>
+                                            
+                                        <Form.Label>Gender</Form.Label>
+                                        <Form.Control  as="select" className = "from-control"  type="String" value={this.state.gender} onChange={this.onChangeGender}
+                                                // className="mr-sm-2"
+                                                // id="inlineFormCustomSelect"
+                                                // custom
+                                            >
+                                                <option value="0">Choose...</option>
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
+                                                <option value="3">Other</option> 
+                                        </Form.Control>
+                                        </Form.Group>
+                                    </Form.Row>
+                                    <Form.Row>
+                                        <Form.Group as={Col} md="8">
+                                            <Form.Label>Address</Form.Label>
+                                            <Form.Control placeholder="Enter Address" className = "from-control"  type="String" value={this.state.address} onChange={this.onChangeAddress}/>
+                                        </Form.Group>
 
-                                    <Form.Group as={Col}>
-                                        <Form.Label>Mobile</Form.Label>
-                                        <Form.Control placeholder="+94 (00 000 0000)"  className = "from-control" max="10" type="Number" value={this.state.mobile} onChange={this.onChangeMobile}/>
+                                        <Form.Group as={Col}>
+                                            <Form.Label>Mobile</Form.Label>
+                                            <Form.Control placeholder="+94 (00 000 0000)"  className = "from-control" type="Number" value={this.state.mobile} onChange={this.onChangeMobile}/>
+                                        </Form.Group>
+                                    </Form.Row>
+                                    <Form.Row>
+                                        <Form.Group as={Col} md="8">
+                                            <Form.Label>Email</Form.Label>
+                                            <Form.Control placeholder="Enter Email" className = "from-control"  type="email" value={this.state.email} onChange={this.onChangeEmail}/>
+                                        </Form.Group>
+                                        <Form.Group as={Col}>
+                                            <Form.Label>Create Password</Form.Label>
+                                            <Form.Control placeholder="Create Your Password"  className = "from-control"  type="password" value={this.state.password} onChange={this.onChangePassword}/>
+                                        </Form.Group>
+                                    </Form.Row>
+                                    <Form.Group>
+                                        <Form.Check
+                                            label="Agree to terms and conditions"
+                                            feedback="You must agree before submitting."
+                                        />
                                     </Form.Group>
-                                </Form.Row>
-                                <Form.Row>
-                                    <Form.Group as={Col} md="8">
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control placeholder="Enter Email" className = "from-control"  type="email" value={this.state.email} onChange={this.onChangeEmail}/>
-                                    </Form.Group>
-                                    <Form.Group as={Col}>
-                                        <Form.Label>Create Password</Form.Label>
-                                        <Form.Control placeholder="Create Your Password"  className = "from-control"  type="password" value={this.state.password} onChange={this.onChangePassword}/>
-                                    </Form.Group>
-                                </Form.Row>
-                                <Form.Group>
-                                    <Form.Check
-                                        label="Agree to terms and conditions"
-                                        feedback="You must agree before submitting."
-                                    />
-                                </Form.Group>
-                                <Button variant="warning" type="submit" style= {{ width: "100%"}} >
-                                    Register
-                                </Button>
-                                    {/* <div className = "UserRegisterClass" > 
-                                    <span><a  href = "/ViewUserLogin" onClick={this.login} className="anquerTagExistingUser">Already have an account?</a></span>
-                                    <Col>
-                                        <Login />
-                                    </Col>
-                                    </div> */}
+                                    <Button variant="warning" type="submit" style= {{ width: "100%"}} >
+                                        Register
+                                    </Button>
                                 </Form>    
                             </Col>    
                         </Row>   
