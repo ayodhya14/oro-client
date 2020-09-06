@@ -8,11 +8,12 @@ import ProductList from "./ProductList";
 import "./Home.scss";
 
 import { useState } from "react";
+import { useEffect } from "react";
 
 function Home (){
     let [term, setTerm] = useState('');
  
-   
+        
         return(
             <div className = "homePage_parentDiv">
                 <div className = "mainHeaderClass">
