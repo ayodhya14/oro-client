@@ -12,8 +12,9 @@ import Image from 'react-bootstrap/Image';
 
 import Checkout from "./Checkout";
 import "./Cart.scss";
+import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 
-class Cart extends Component{
+class Cart extends Component {
     constructor(props) {
         super(props)
         this.viewCheckout = this.viewCheckout.bind(this);
@@ -43,7 +44,7 @@ class Cart extends Component{
                     subTotal: 45000,
                     qty: 3
                 },
-                
+
             ]
         };
     }
@@ -66,55 +67,60 @@ class Cart extends Component{
         alert(id);
     };
 
-    
+
     viewCheckout() {
         alert('Are you sure you want to Checkout?');
         // <Checkout />
     }
 
     render() {
-        return(
-            <div className = "ParentClassCart">
+        return (
+            <div className="ParentClassCart">
                 {this.state.price == "" ? this.calculatePayment() : null}
-                <Card className = "card">
+                <Card className="card">
                     <Row xs={1} sm={1} md={2} lg={2}>
                         <Col xs={12} sm={12} md={8} lg={8}>
                             <div className="headingClass">
                                 <h4> Shopping Cart </h4>
+                                
                             </div>
                             <div>
                                 <Table responsive="sm">
+                                
                                     {this.state.tableData.map((item, index) => {
                                         return (
+
                                             <tbody key={index}>
+
                                                 <tr>
                                                     <td className="tableBodyData">{index + 1}</td>
                                                     <td>
-                                                    <a href = "/ViewSingleProduct"><Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail  /></a>
+                                                        <a href="/ViewSingleProduct"><Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail /></a>
                                                     </td>
-                                                    <td className="tableBodyData"><a href = "/ViewSingleProduct">{item.name}</a></td>
+                                                    <td className="tableBodyData">{item.name}<a href="/ViewSingleProduct"></a></td>
                                                     {/* need color change to black */}
-                                                    <td className="tableBodyData" style = {{color: "black" }}>{item.qty}</td>
-                                                    <td className="tableBodyData">{item.price}</td>
-                                                    <td className="tableBodyData">{item.subTotal}</td>
+                                                    <td className="tableBodyData" style={{ color: "black" }}>{item.qty}</td>
+                                                    <td className="tableBodyData">Rs.{item.price}</td>
+                                                    <td className="tableBodyData">Rs.{item.subTotal}</td>
                                                     <td className="tableBodyData">
-                                                        <Button onClick={() => this.onClickRemoveItem(index)} className = "buttonClass" variant="outline-danger"><FaTrashAlt /></Button>
+                                                        <Button onClick={() => this.onClickRemoveItem(index)} className="buttonClass" variant="outline-danger"><FaTrashAlt /></Button>
                                                     </td>
                                                 </tr>
                                             </tbody>
+                                       
                                         );
                                     })}
-                                </Table>                                
+                                </Table>
                             </div>
                         </Col>
                         <Col xs={12} sm={12} md={4} lg={4}>
                             <div className="headingClass">
                                 <h4>Order Summary</h4>
                             </div>
-                            <Card className = "card">
+                            <Card className="card">
                                 <div>
                                     <h6 className="cardHeadingClass">Payment</h6>
-                                    <Card className = "card">
+                                    <Card className="card">
                                         <Row>
                                             <Col xs={6} sm={6} md={6} lg={6}>
                                                 <div>
@@ -124,29 +130,29 @@ class Cart extends Component{
                                                 </div>
                                             </Col>
                                             <Col xs={6} sm={6} md={6} lg={6}>
-                                                <div style={{textAlign: "right", paddingRight: "10px"}}>
-                                                    <span>{this.state.price}</span><br />
-                                                    <span>250</span><br /><br />
-                                                    <span>{this.state.price+250}</span>
+                                                <div style={{ textAlign: "right", paddingRight: "10px" }}>
+                                                    <span>Rs.{this.state.price}</span><br />
+                                                    <span>Rs.250</span><br /><br />
+                                                    <span>Rs.{this.state.price + 250}</span>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card>
                                 </div>
                                 <br />
-                                    <div className = "checkout">
-                                    <a  href = "/ViewCheckout" className = "btn btn-warning" onClick={this.viewCheckout}>Proceed To Checkout</a>
+                                <div className="checkout">
+                                    <a href="/ViewCheckout" className="btn btn-warning" onClick={this.viewCheckout}>Proceed To Checkout</a>
                                     {/* <Button className = "buttonCheckoutClass" onClick={this.viewCheckout} variant="warning">Proceed To Checkout</Button> */}
-                                    </div>
+                                </div>
                             </Card>
                         </Col>
 
                     </Row>
                 </Card>
-               
+
             </div>
         );
-    
+
     }
 }
 export default Cart;

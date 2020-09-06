@@ -10,14 +10,18 @@ class ProductList extends Component {
 
     state = {
         allProducts: [],
-        filterallProducts: []
+        filterallProducts: [],
+        productId:1
 
     };
+    // setProductValue(value){
+    //     this.setState({ productId: value });
+    //     this.props.onClick(this.state.productId);
+    // }
 
     render() {
         return (
             <div className="productListParentClass">
-
                 <Row>
                     <Col sm="12" md={{ size: 6, offset: 4 }}>
                         <Button onClick={() => this.allProducts()} style={{ width: "10%", borderRadius: 0, borderTopLeftRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">All</Button>
@@ -33,6 +37,7 @@ class ProductList extends Component {
                             <Product
                                 key={index}
                                 product={product}
+                                onClick={(value) => this.props.onClick(value)}
                             />
                         </Col>
                     ))}

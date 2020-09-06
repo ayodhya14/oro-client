@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import CardGroup from 'react-bootstrap/CardGroup'
@@ -12,7 +12,8 @@ import ListGroupItem from 'react-bootstrap/ListGroup'
 class SingleProduct extends Component{
     
     state = {
-        
+        productId : this.props.id,
+        product :{}
     };
   
   render() {
@@ -23,23 +24,23 @@ class SingleProduct extends Component{
                         <Col xs={12} sm={12} md={6} lg={6}>
                             <div>
                             <Card style={{ width: '26rem' }}>
-                              <Card.Img variant="top" src="http://www.ravijewellers.lk/images/products/38.jpg" />
+                              <Card.Img variant="top" src={this.state.product.imageUrl} />
                             </Card>                               
                             </div>
                         </Col>
                         <Col xs={12} sm={12} md={5} lg={5}>
                             <div className="headingClass">
-                                <h2 className="card-title">Gold Necklace - A001</h2>
+                                <h2 className="card-title">{this.state.product.name}</h2>
                             </div>
                           
                                 <div>
                                 <Card.Body>
-                                   <Card.Text><b>Type:</b>&nbsp;  Necklace</Card.Text>
+                                   <Card.Text><b>Type:</b>&nbsp;  {this.state.product.productType}</Card.Text>
                                   <Card.Text>
-                                    <b>Description:</b>&nbsp; Gold Necklace with Flower Petal Shapes as a Pendant set with White Sto...
+                                    <b>Description:</b>&nbsp; {this.state.product.description}
                                   </Card.Text>
-                                  <Card.Text><b>Price:</b>&nbsp; Rs.32000.00</Card.Text>
-                                  <Card.Text><b>Available Quantity:&nbsp;</b> 45</Card.Text>
+                                  <Card.Text><b>Price:</b>&nbsp; Rs.{this.state.product.unitPrice}</Card.Text>
+                                  <Card.Text><b>Available Quantity:&nbsp;</b> {this.state.product.availableQty}</Card.Text>
                                 </Card.Body>
 
                                 {/* <ListGroup className="list-group-flush">
@@ -73,8 +74,20 @@ class SingleProduct extends Component{
                     </Row>
                 </Card>
         </div>
-    );
+    ); 
   }
-    
+  async componentDidMount() {
+    this.allProducts();
+}
+async allProducts() {
+  console.log('id');
+  console.log(this.props.id);
+  let  {data}  = await axios.get(`http://localhost:5000/api/products/${this.props.id}`);
+  // let  {data}  = await axios.get(`http://localhost:5000/api/products/5f47bdee06a1185b20995999`);
+  console.log(data);
+  this.setState({ product: data });
+  
+}
+
 }
 export default SingleProduct;
