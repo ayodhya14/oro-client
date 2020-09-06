@@ -61,6 +61,7 @@ onChangePassword(e){
 }
 
 submitUser = event => {
+    //stop the refresh inside the DOM
     event.preventDefault();
 
     const obj = {
@@ -72,7 +73,6 @@ submitUser = event => {
         email: this.state.email,
         password: this.state.password,
     };
-
 
     // append '+' mark to the mobile number.
     let val = obj.mobile.slice(2);
