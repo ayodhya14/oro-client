@@ -61,6 +61,7 @@ onChangePassword(e){
 }
 
 submitUser = event => {
+    //stop the refresh inside the DOM
     event.preventDefault();
 
     const obj = {
