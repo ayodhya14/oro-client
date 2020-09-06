@@ -101,7 +101,8 @@ class Checkout extends Component{
                 country: "Sri Lanka"
             },
             tableData: [
-                {
+                {   
+                    date: "2020-08-20",
                     image: "https://ae01.alicdn.com/kf/HTB1.AgdajzuK1RjSspeq6ziHVXaS/Rhinestone-Happy-Family-Ring-Mother-Father-Girl-Boy-Design-Rings-for-Family-Merry-Christmas-New-Year.jpg_960x960.jpg",
                     name: "Gold Family Ring",
                     price: 10000,
@@ -109,6 +110,7 @@ class Checkout extends Component{
                     qty: 2
                 },
                 {
+                    date: "2020-08-20",
                     image: "https://i.pinimg.com/originals/eb/95/d3/eb95d3eafbf6d85ec230c13eedcbd8db.png",
                     name: "Pin on Women jewelry",
                     price: 3000,
@@ -116,6 +118,7 @@ class Checkout extends Component{
                     qty: 1
                 },
                 {
+                    date: "2020-08-22",
                     image: "https://i.pinimg.com/originals/e6/22/25/e62225dca0d44d7470714dbb6b4105b5.jpg",
                     name: "Natural Russian Copper Charoite Gemstone Silver Tone Fine Jewelry",
                     price: 15000,
@@ -181,6 +184,7 @@ class Checkout extends Component{
                                             <tbody key={index}>
                                                 <tr>
                                                     <td className="tableBodyData">{index + 1}</td>
+                                                    <td className="tableBodyData">{item.date}</td>
                                                     <td>
                                                         <Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail  />
                                                     </td>
