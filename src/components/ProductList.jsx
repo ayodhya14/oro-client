@@ -10,21 +10,25 @@ class ProductList extends Component {
 
     state = {
         allProducts: [],
-        filterallProducts: []
+        filterallProducts: [],
+        productId:1
 
     };
+    // setProductValue(value){
+    //     this.setState({ productId: value });
+    //     this.props.onClick(this.state.productId);
+    // }
 
     render() {
         return (
             <div className="productListParentClass">
-
                 <Row>
                     <Col sm="12" md={{ size: 6, offset: 4 }}>
                         <Button onClick={() => this.allProducts()} style={{ width: "10%", borderRadius: 0, borderTopLeftRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">All</Button>
                         <Button onClick={() => this.categoryFilterFunction('Bangle')} style={{ width: "10%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Bangle</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Necklace')} style={{ width: "11%", borderRadius: 0, marginBottom: "1%"}} variant="warning" size="lg">Necklace</Button>
+                        <Button onClick={() => this.categoryFilterFunction('Necklace')} style={{ width: "11%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Necklace</Button>
                         <Button onClick={() => this.categoryFilterFunction('Earring')} style={{ width: "10%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Earring</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Pendent')} style={{ width: "10%", borderRadius: 0, borderTopRightRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">Pendent</Button>
+                        <Button onClick={() => this.categoryFilterFunction('Pendent')} style={{ width: "11%", borderRadius: 0, borderTopRightRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">Pendent</Button>
                     </Col>
                 </Row>
                 <Row xs={1} sm={2} md={3} lg={4}>
@@ -33,6 +37,7 @@ class ProductList extends Component {
                             <Product
                                 key={index}
                                 product={product}
+                                onClick={(value) => this.props.onClick(value)}
                             />
                         </Col>
                     ))}
@@ -45,35 +50,43 @@ class ProductList extends Component {
         this.allProducts();
     }
 
-    async componentDidUpdate() {
-        this.allProducts();
+    async componentDidUpdate(prevProps, prevState) {        
+        
+        // if(prevState.allProducts !== this.state.allProducts){
+        //     this.dynamicSearch();
+        // }
+        if(prevProps.term !== this.props.term){
+            this.dynamicSearch();
+        }
     }
     async allProducts() {
         let { data } = await axios.get("http://localhost:5000/api/products");
         console.log(data);
-      
-            let products = data.map((product) => {
-                return {
-                    id: product._id,
-                    productType: product.productType,
-                    imageUrl: product.imageUrl,
-                    description: product.description,
-                    availableQty: product.availableQty,
-                    unitPrice: product.unitPrice,
-                    name: product.name,
-                };
-            });
-            this.setState({ allProducts: products });
-        
-            if(this.props.term){
 
-            console.log("term is");
-            console.log(this.props.term);        
-            let test = this.state.allProducts;
-            
-            let products =   this.state.allProducts.filter( product => {
-                return product.name.toLowerCase().includes(this.props.term.toLowerCase())
-            })
+        let products = data.map((product) => {
+            return {
+                id: product._id,
+                productType: product.productType,
+                imageUrl: product.imageUrl,
+                description: product.description,
+                availableQty: product.availableQty,
+                unitPrice: product.unitPrice,
+                name: product.name,
+            };
+        });
+        this.setState({ allProducts: products });
+        
+    }
+
+    async dynamicSearch() {
+        await this.allProducts();
+        console.log("term is");
+        console.log(this.props.term);
+
+        //Dynamic search according to the product name            
+        let products = this.state.allProducts.filter(product => {
+            return product.name.toLowerCase().includes(this.props.term.toLowerCase())
+        })
             .map(product => {
                 return {
                     id: product._id,
@@ -85,14 +98,12 @@ class ProductList extends Component {
                     name: product.name,
                 };
             });
-            console.log(products);
-            this.setState({ allProducts: products });
-            }
-        
-
+        console.log(products);
+        this.setState({ allProducts: products });
     }
 
     async categoryFilterFunction(categoryName) {
+        
         let { data } = await axios.get("http://localhost:5000/api/products");
         this.setState({ filterallProducts: data }, () => {
             this.filterCategory(categoryName);

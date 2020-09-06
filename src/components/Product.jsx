@@ -16,21 +16,22 @@ class Product extends Component {
         
     };
 
+
     render() {
         return (
-            <div className="card" style={{height: "95%", marginBottom: "20px"}}>
-                <div className="card-body">
+            
+          <div className="card" onClick ={()=> this.props.onClick(this.state.productId)} style={{height: "95%", marginBottom: "20px"}}>
+                
+                <div className="card-body" >
                     <h5 className="card-title">{this.props.product.productType}</h5>
-                    <a href = "/ViewSingleProduct">
+                 
                          <img className="card-img productImg" src={this.props.product.imageUrl} alt="Product Image"/>
-                    </a>
-                    <div className="centerClass">
-                        <a href = "/ViewSingleProduct">
-                            <h5 className="cardProductName">{this.props.product.name}</h5>
-                         </a> 
+                    <div className="centerClass" >
+                        
+                            <h5 className="cardProductName" onClick ={(event)=> this.props.onClick(this.state.productId)}>{this.props.product.name}</h5>
                     </div>
                     <div className="centerClass">
-                        <h6 className="card-title">{this.props.product.unitPrice}</h6>
+                        <h6 className="card-title">Rs.{this.props.product.unitPrice}</h6>
                     </div>
                     <Button onClick={() => this.onClickAddToCartItem(this.props.product)} style={{width: "100%"}} variant="warning">Add to Cart</Button>
                 </div>

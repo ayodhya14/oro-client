@@ -8,31 +8,41 @@ import ProductList from "./ProductList";
 import "./Home.scss";
 
 import { useState } from "react";
+import { useEffect } from "react";
+import SingleProduct from "./SingleProduct";
 
-function Home (){
+function Home() {
     let [term, setTerm] = useState('');
- 
-   
-        return(
-            <div className = "homePage_parentDiv">
-                <div className = "mainHeaderClass">
-                    <Header onChange={(value) => setTerm(value)} />           
-                </div>
-                <div className = "mainSliderClass">
-                    <MainSlider />
-                </div>
-                <div className = "mainProductListClass">
-                    <ProductList term={term}  />
-                </div>
-                <div className = "mainFooterClass">
-                    <Footer />
-                </div>
-                        
-            </div>
-            
-        );
+    let [productId, setId] = useState('');
 
-    
+
+    return (
+        <div className="homePage_parentDiv">
+            <div className="mainHeaderClass">
+                <Header onChange={(value) => setTerm(value)} />
+            </div>
+            <div className="mainSliderClass">
+                <MainSlider />
+            </div>
+            {/* <div className = "mainProductListClass">
+                    <ProductList term={term} onClick={(value)=> setId(value)} />
+                </div> */}
+            <div>
+                {
+                    !(productId) ?
+                        <div className="mainProductListClass"><ProductList term={term} onClick={(value) => setId(value)} /></div> :
+                        <div className="SingleProductParentClass"><SingleProduct  id={productId} /> </div>
+                }
+            </div>
+            <div className="mainFooterClass">
+                <Footer />
+            </div>
+
+        </div>
+
+    );
+
+
 
 }
 
