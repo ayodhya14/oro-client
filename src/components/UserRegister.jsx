@@ -155,8 +155,6 @@ onChangePassword(e){
 
                                 </Form.Row>
 
-
-
                                 <Form.Row>
                                     <Form.Group as={Col} md="8">
                                     <Form.Label>Email</Form.Label>
