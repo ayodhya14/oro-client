@@ -9,12 +9,53 @@ class Product extends Component {
         this.state = {
             productId: this.props.product.id,
             cartItemArray: [],
+            quantity: 1,
         };
     }
+    
+    // //add to cart -  local storage
+    // onClickAddToCartItem = event => 
+    //       this.setState({[event.target.name]: event.target.value})
+    //   addToCart = () => {
+    //     let cart = localStorage.getItem('cart') 
+    //                   ? JSON.parse(localStorage.getItem('cart')) : {};
+    //     let id = this.props.product.id.toString();
+    //     cart[id] = (cart[id] ? cart[id]: 0);
+    //     let qty = cart[id] + parseInt(this.state.quantity);
+    //     if (this.props.product.available_quantity < qty) {
+    //       cart[id] = this.props.product.available_quantity; 
+    //     } else {
+    //       cart[id] = qty
+    //     }
+    //     localStorage.setItem('cart', JSON.stringify(cart));
+    //   }
 
-    onClickAddToCartItem = (val) => {
-        
-    };
+    //   componentDidMount() {
+    //     let cart = localStorage.getItem('cart');
+    //     if (!cart) return; 
+    //     getCartProducts(cart).then((products) => {
+    //       let total = 0;
+    //       for (var i = 0; i < products.length; i++) {
+    //         total += products[i].price * products[i].qty;
+    //       }
+    //       this.setState({ products, total });
+    //       });
+    //   }
+
+    //   removeFromCart = (product) => {
+    //     let products = this.state.products.filter((item) => item.id !== product.id);
+    //     let cart = JSON.parse(localStorage.getItem('cart'));
+    //     delete cart[product.id.toString()];
+    //     localStorage.setItem('cart', JSON.stringify(cart));
+    //     let total = this.state.total - (product.qty * product.price) 
+    //     this.setState({products, total});
+    //   }
+
+
+    // clearCart = () => {
+    //     localStorage.removeItem('cart');
+    //     this.setState({products: []});
+    //   }
 
 
     render() {
