@@ -16,16 +16,10 @@ class ViewSingleProduct extends Component{
     state = {};
     render() {
         return(
-            <div className = "homePage_parentDiv">
+            <div className = "singleproduct_parentDiv">
                 <div className = "mainHeaderClass">
                     <Header />
-                    {/* <Logout /> */}
-                    {/* <Login /> */}
                 </div>
-                {/* <div className = "mainProductListClass"> */}
-                    {/* <ProductList /> */}
-                    {/* <GoogleBtn /> */}
-                {/* </div> */}
                 <div className = "viewSingleProduct" style={{display: "flex", justifyContent: "center" }}>
                     <SingleProduct />
                 </div>

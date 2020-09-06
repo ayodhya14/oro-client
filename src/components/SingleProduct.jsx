@@ -42,26 +42,13 @@ class SingleProduct extends Component{
                                   <Card.Text><b>Price:</b>&nbsp; Rs.{this.state.product.unitPrice}</Card.Text>
                                   <Card.Text><b>Available Quantity:&nbsp;</b> {this.state.product.availableQty}</Card.Text>
                                 </Card.Body>
-
-                                {/* <ListGroup className="list-group-flush">
-                                  <ListGroupItem>Cras justo odio</ListGroupItem>
-                                  <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                                </ListGroup> */}
-
-                                {/* <Card.Body>
-                                  <Card.Link href="#">Card Link</Card.Link>
-                                  <Card.Link href="#">Another Link</Card.Link>
-                                </Card.Body> */}
                                 </div>
 
-                            <br />
+                               <br />
                                 <div className = "Add to Cart" >
                                 <a  href = "/" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "23rem"}}>Add to Cart</a>
                                  &nbsp;&nbsp;&nbsp;
 
-                                 {/* add qty add and reduce button */}
-                                {/* <a  href = "/ViewCart" className = "btn btn-warning" onClick={this.viewCart}>Continue Shopping</a> */}
                                 </div> 
                                 <br/>
                                 <div className = "View Cart" >
