@@ -27,7 +27,7 @@ function Home() {
             {/* <div className = "mainProductListClass">
                     <ProductList term={term} onClick={(value)=> setId(value)} />
                 </div> */}
-            <div>
+            <div className = "mainProductListClass">
                 {
                     !(productId) ?
                         <div className="mainProductListClass"><ProductList term={term} onClick={(value) => setId(value)} /></div> :
