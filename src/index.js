@@ -11,7 +11,6 @@ import TabView from './components/TabView.jsx';
 import ViewSingleProduct from './components/ViewSingleProduct.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Search from './components/Search.jsx';
 
  {/* This line can be included in your src/index.js or App.js file*/}
 
@@ -19,7 +18,6 @@ import Search from './components/Search.jsx';
 ReactDOM.render(<BrowserRouter>
     <Route exact path="/" component={Jewellery} />
     <Route exact path="/viewCart" component={ViewCart} />
-    <Route exact path="/search" component={Search}/>
     <Route exact path="/viewCheckout" component={ViewCheckout} />
     <Route exact path="/viewUserLogin" component={ViewUserLogin} />
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />

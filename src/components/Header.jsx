@@ -34,7 +34,7 @@ class Header extends Component{
                     </Col>
                     <Col xs={9} sm={10} md={10} lg={10}>
                         <Row>
-                            <div className="searchWidget">
+                            {/* <div className="searchWidget">
                                 <InputGroup className="mb-3">
                                     <FormControl
                                         onChange={this.handleSearchChange}
@@ -46,6 +46,24 @@ class Header extends Component{
                                     <a href = "/search"><Button variant="warning" onClick={() => this.setSearch()}> Search </Button></a>
                                     </InputGroup.Append>
                                 </InputGroup>
+                            </div> */}
+                            <div className="search">
+                                <form
+                                    action="#"
+                                    method="get"
+                                    className={
+                                        "search-form active"
+                                    }
+                                >
+                                    <input
+                                        type="search"
+                                        ref="searchBox"
+                                        placeholder="Search for Jewellery"
+                                        className="search-keyword"
+                                        onChange={(event)=> this.props.onChange(event.target.value)}
+                                    />
+                                    
+                                </form>
                             </div>
                         </Row>
                         <Row style={{ marginTop: "2vh" }}>
@@ -77,27 +95,15 @@ class Header extends Component{
         );
     }
 
-    //sends the search name to parent : ProductSearch
-    setSearch = () => {
-        this.props.sendSearch(this.state.name);
-        console.log("name is set");
-        console.log(this.state.name);
-    }
-
+   
     
     constructor(props) {
 
         super(props);
-        this.handleSearchChange = this.handleSearchChange.bind(this);
        
       }
 
-    //Captures the text in the search
-    handleSearchChange (e) {
-
-        this.setState({name: e.target.value});
-        console.log(this.state.name);
-     }
+    
 
 }
 

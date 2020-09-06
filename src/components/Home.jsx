@@ -7,19 +7,22 @@ import ProductList from "./ProductList";
 
 import "./Home.scss";
 
-class Home extends Component{
-    state = {};
-    render() {
+import { useState } from "react";
+
+function Home (){
+    let [term, setTerm] = useState('');
+ 
+   
         return(
             <div className = "homePage_parentDiv">
                 <div className = "mainHeaderClass">
-                    <Header />           
+                    <Header onChange={(value) => setTerm(value)} />           
                 </div>
                 <div className = "mainSliderClass">
                     <MainSlider />
                 </div>
                 <div className = "mainProductListClass">
-                    <ProductList />
+                    <ProductList term={term}  />
                 </div>
                 <div className = "mainFooterClass">
                     <Footer />
@@ -29,7 +32,7 @@ class Home extends Component{
             
         );
 
-    }
+    
 
 }
 

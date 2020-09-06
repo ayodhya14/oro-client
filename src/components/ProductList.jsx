@@ -45,22 +45,51 @@ class ProductList extends Component {
         this.allProducts();
     }
 
+    async componentDidUpdate() {
+        this.allProducts();
+    }
     async allProducts() {
         let { data } = await axios.get("http://localhost:5000/api/products");
         console.log(data);
+      
+            let products = data.map((product) => {
+                return {
+                    id: product._id,
+                    productType: product.productType,
+                    imageUrl: product.imageUrl,
+                    description: product.description,
+                    availableQty: product.availableQty,
+                    unitPrice: product.unitPrice,
+                    name: product.name,
+                };
+            });
+            this.setState({ allProducts: products });
+        
+            if(this.props.term){
 
-        let products = data.map((product) => {
-            return {
-                id: product._id,
-                productType: product.productType,
-                imageUrl: product.imageUrl,
-                description: product.description,
-                availableQty: product.availableQty,
-                unitPrice: product.unitPrice,
-                name: product.name,
-            };
-        });
-        this.setState({ allProducts: products });
+            console.log("term is");
+            console.log(this.props.term);        
+            let test = this.state.allProducts;
+            
+            let products =   this.state.allProducts.filter( product => {
+                return product.name.toLowerCase().includes(this.props.term.toLowerCase())
+            })
+            .map(product => {
+                return {
+                    id: product._id,
+                    productType: product.productType,
+                    imageUrl: product.imageUrl,
+                    description: product.description,
+                    availableQty: product.availableQty,
+                    unitPrice: product.unitPrice,
+                    name: product.name,
+                };
+            });
+            console.log(products);
+            this.setState({ allProducts: products });
+            }
+        
+
     }
 
     async categoryFilterFunction(categoryName) {
