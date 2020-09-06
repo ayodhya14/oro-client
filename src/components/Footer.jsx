@@ -29,7 +29,7 @@ class Footer extends Component{
 
                     {/* Home, About Us, Branchers */}
                     <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "4%" , marginTop: "3vh"}}>
-                         <a className="link" href=" /Home">
+                         <a className="link" href=" /">
                             <h5>Home</h5>
                         </a>
                         {/* <li><Link to="/Home"><h5>Home</h5></Link></li> */}

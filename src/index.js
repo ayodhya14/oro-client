@@ -7,7 +7,7 @@ import ViewCart from './components/ViewCart.jsx'
 import ViewCheckout from './components/ViewCheckout.jsx';
 import ViewUserLogin from './components/ViewUserLogin.jsx';
 import ViewUserRegister from './components/ViewUserRegister.jsx';
-import ViewUserProfile from './components/ViewUserProfile.jsx';
+import TabView from './components/TabView.jsx';
 import ViewSingleProduct from './components/ViewSingleProduct.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,7 +23,7 @@ ReactDOM.render(<BrowserRouter>
     <Route exact path="/viewCheckout" component={ViewCheckout} />
     <Route exact path="/viewUserLogin" component={ViewUserLogin} />
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
-    <Route exact path="/viewUserProfile" component={ViewUserProfile} />
+    <Route exact path="/tabView" component={TabView} />
     <Route exact path="/viewSingleProduct" component={ViewSingleProduct} />
     
   </BrowserRouter>,

@@ -55,12 +55,19 @@ class SingleProduct extends Component{
                                 </div>
 
                             <br />
+                                <div className = "Add to Cart" >
+                                <a  href = "/" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "23rem"}}>Add to Cart</a>
+                                 &nbsp;&nbsp;&nbsp;
+
+                                 {/* add qty add and reduce button */}
+                                {/* <a  href = "/ViewCart" className = "btn btn-warning" onClick={this.viewCart}>Continue Shopping</a> */}
+                                </div> 
+                                <br/>
                                 <div className = "View Cart" >
                                 <a  href = "/ViewCart" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "12rem"}}>View Cart</a>
                                  &nbsp;&nbsp;&nbsp;
-                                <a  href = "/ViewCart" className = "btn btn-warning" onClick={this.viewCart}>Continue Shopping</a>
+                                <a  href = "/" className = "btn btn-warning" onClick={this.home}>Continue Shopping</a>
                                 </div>
-
                         </Col>
 
                     </Row>

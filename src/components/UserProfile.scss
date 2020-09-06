@@ -1,0 +1,36 @@
+.anquerTagExistingUser {
+    color: #007bff !important;
+}
+
+.anquerTagExistingUser:hover {
+  color: #adadad !important;
+}
+
+.card {
+    margin: 0% 2% 0% 2%;
+    padding: 15px;
+}
+
+.UserProfileHeadingClass {
+  display: flex;
+  justify-content: center;
+}
+
+.UserProfileParentClass {
+  width: 60%;
+}
+
+.UserProfileCardHeader {
+  background-color: tomato;
+  border-radius: 5px 5px 0px 0px !important;
+}
+
+.UserProfileCardBody {
+  border-radius: 0px 0px 5px 5px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .UserProfileParentClass {
+    width: 85%;
+  }
+}

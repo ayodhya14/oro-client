@@ -14,6 +14,7 @@ import axios from "axios";
 import Login from './Login';
 import Logout from './Logout';
 import ViewCart from "./ViewCart";
+import TabView from "./TabView";
 
 import "./Header.scss";
 
@@ -60,7 +61,7 @@ class Header extends Component{
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className="headerLinks">
                             <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
-                            <a className="link" href="/UserProfile" >Account</a>
+                            <a className="link" href="/TabView" >Account</a>
                             </Col>  
                     
                             {/* <Col>
