@@ -14,54 +14,46 @@ import "./UserLogin.scss";
 import Login from "./Login";
 import Recaptcha from "./Recaptcha";
 import Logout from "./Logout";
-import Axios from "axios";
+import axios from "axios";
 
 class UserLogin extends Component {
   constructor(props) {
     super(props);
 
-    // //Bind Login feilds to Input form
-    //     this.onChangeUserId = this.onChangeUserId.bind(this);
-    //     this.onChangeProductId = this.onChangeProductId.bind(this);
-    //     this.onChangeQuantity = this.onChangeQuantity.bind(this);
+    //Bind Login feilds to Input form
+      this.onChangeEmail = this.onChangeEmail.bind(this);
+      this.onChangePassword = this.onChangePassword.bind(this);
 
-    //     this.state = {
-    //         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
-    //     }
-    // }
-    // onChangeUserId(e){
-    //     this.setState({ userId: e.target.value});
-    // }
+      this.state = {
+        email: '', password: '', token: ''
+      }
+    }
+    onChangeEmail(e){
+      this.setState({ email: e.target.value});
+    }
 
-    // onChangeProductId(e){
-    //     this.setState({ productId: e.target.value});
-    // }
+    onChangePassword(e){
+      this.setState({ password: e.target.value});
+    }
 
-    //   submitUser(){
-    //       const obj = {
-    //           userId: this.state.userId,
-    //           productId: this.state.productId
+    login = event => {
+      //stop the refresh inside the DOM
+      event.preventDefault();
 
-    //       };
-    //       Axios.post('http://localhost:5000/api/usersLogin/', obj).then(res => console.log(res.data));
-
-    //       this.setState({
-    //         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
-    //       });
-    //   }
-
-    //   componentDidMount(){
-    //       Axios.get('http://localhost:5000/api/usersLogin/').then(response =>{
-    //           this.setState({
-    //               userId: response.date.userId,
-    //               productId: response.date.productId,
-    //           });
-    //           console.log(response.data)
-    //       })
-    //       .catch(function (error){
-    //           console.log(error);
-    //       });
-  }
+      const obj = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      axios.post(`http://localhost:5000/api/auth`, obj)
+        .then(res => {
+          this.setState({
+            token: res.data.token
+          });
+          console.log("this.state.token");
+          localStorage.setItem("userTokenORO", res.data.token);
+          console.log(localStorage.userTokenORO);
+      })
+    }
 
   render() {
     return (
@@ -76,7 +68,7 @@ class UserLogin extends Component {
             <Card className="loginCardBody card" border="warning">
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12}>
-                  <Form>
+                  <Form onSubmit={this.login}>
                     <Row>
                       <Col>
                         <Login />
@@ -91,7 +83,7 @@ class UserLogin extends Component {
                     </Row>
                     <Form.Group controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
-                      <Form.Control type="email" placeholder="Enter email" />
+                      <Form.Control value={this.state.email} onChange={this.onChangeEmail} type="email" placeholder="Enter email" />
                       <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                       </Form.Text>
@@ -99,7 +91,7 @@ class UserLogin extends Component {
 
                     <Form.Group controlId="formBasicPassword">
                       <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Control value={this.state.password} onChange={this.onChangePassword} type="password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox">
                       <Form.Check
@@ -123,16 +115,15 @@ class UserLogin extends Component {
                     >
                       Login
                     </Button>
-                    <div className="parentClassForAnqure">
-                      <a
-                        href="/ViewUserRegister"
-                        onClick={this.login}
-                        className="anquerTagNewUser"
-                      >
-                        New User?
-                      </a>
-                    </div>
                   </Form>
+                  <div className="parentClassForAnqure">
+                    <a
+                      href="/ViewUserRegister"
+                      className="anquerTagNewUser"
+                    >
+                      New User?
+                    </a>
+                  </div>
                 </Col>
               </Row>
             </Card>

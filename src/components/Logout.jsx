@@ -8,7 +8,7 @@ class Logout extends Component {
 
     render() {
         const onSuccess = () => {
-            window.location.reload(true);
+            localStorage.removeItem();
         };
 
         return (

@@ -15,9 +15,7 @@ class Footer extends Component{
     render() {
         return (
             <div className = "FooterParentClass">
-               
                 <Row style={{marginTop: "2vh", backgroundColor: "Black"}}>
-
                     {/* Logo */}
                     <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "5%" , marginTop: "3vh"}}>
                         <div>
@@ -26,35 +24,30 @@ class Footer extends Component{
                             <Badge style={{cursor: "pointer" }}><FaCreditCard style={{ cursor: "pointer", width: "4vh", height: "4vh" }} />&nbsp;&nbsp;</Badge>
                         </div>
                     </Col>
-
                     {/* Home, About Us, Branchers */}
                     <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "4%" , marginTop: "3vh"}}>
-                         <a className="link" href=" /">
+                         <a style={{color: "#fefefe"}} className="link" href=" /">
                             <h5>Home</h5>
                         </a>
                         {/* <li><Link to="/Home"><h5>Home</h5></Link></li> */}
-                        <a className="link" href="/">
+                        <a style={{color: "#fefefe"}} className="link" href="/">
                             <h5>About </h5>
                         </a>
-                        <a className="link" href="/">
+                        <a style={{color: "#fefefe"}} className="link" href="/">
                             <h5>Branchers</h5>
                         </a>
                     </Col>
-
                     {/* Contact Us */}
                     <Col xs={2} sm={2} md={3} lg={3} className="headerLinks" style={{marginLeft: "4%", marginTop: "3vh"}}>
                         <h5>Contacts</h5>
-                        Mobile:&nbsp;&nbsp;<a className="link" href="/">+94 76 655 9314</a>
+                        Mobile:&nbsp;&nbsp;<a style={{color: "#fefefe"}} className="link" href="/">+94 76 655 9314</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Email:&nbsp;&nbsp;<a className="link" href="/">ORO.Jewelleries@yahoo.com</a>
+                        Email:&nbsp;&nbsp;<a style={{color: "#fefefe"}} className="link" href="/">ORO.Jewelleries@yahoo.com</a>
                     </Col>
-
                     <div style ={{marginLeft: "42%"}}>
                         <p>©2020 ORO Jewllerers</p> 
-                    </div> 
-
-                </Row>
-                                                                  
+                    </div>
+                </Row>                                        
             </div>
         );
     }
