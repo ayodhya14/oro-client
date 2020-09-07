@@ -18,13 +18,13 @@ class ProductList extends Component {
     render() {
         return (
             <div className="productListParentClass">
-                <Row>
-                    <Col sm="12" md={{ size: 6, offset: 4 }}>
+                <Row style ={{}}>
+                    <Col sm="12" md={{ size: 6, offset: 4 }} lg={{ size: 6, offset: 4 }}>
                         <Button onClick={() => this.allProducts()} style={{ width: "10%", borderRadius: 0, borderTopLeftRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">All</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Bangle')} style={{ width: "10%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Bangle</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Necklace')} style={{ width: "11%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Necklace</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Earring')} style={{ width: "10%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Earring</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Pendent')} style={{ width: "11%", borderRadius: 0, borderTopRightRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">Pendent</Button>
+                        <Button onClick={() => this.categoryFilterFunction('Bangle')} style={{ width: "16%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Bangle</Button>
+                        <Button onClick={() => this.categoryFilterFunction('Necklace')} style={{ width: "20%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Necklace</Button>
+                        <Button onClick={() => this.categoryFilterFunction('Earring')} style={{ width: "16%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Earring</Button>
+                        <Button onClick={() => this.categoryFilterFunction('Pendent')} style={{ width: "22%", borderRadius: 0, borderTopRightRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">Pendent</Button>
                     </Col>
                 </Row>
                 <Row xs={1} sm={2} md={3} lg={4}>

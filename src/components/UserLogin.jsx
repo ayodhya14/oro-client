@@ -100,7 +100,7 @@ class UserLogin extends Component {
                     <Button
                       variant="warning"
                       type="submit"
-                      style={{ width: "100%" }}
+                      style={{ width: "100%" , fontSize: "18px"}}
                     >
                       Login
                     </Button>
@@ -114,9 +114,9 @@ class UserLogin extends Component {
                   </div>
                   <Row style={{ marginLeft: "48%", color: "#a4a0a7" }} className="mt-4 mb-4">
                       <div>
-                        <h5>
+                        <h4>
                           OR
-                        </h5>
+                        </h4>
                       </div>
                     </Row>
                   <Row>

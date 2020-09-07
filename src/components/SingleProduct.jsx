@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import axios from "axios";
+
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import CardGroup from 'react-bootstrap/CardGroup'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroup'
+import Form from 'react-bootstrap/Form'
+
+import axios from "axios";
 
 class SingleProduct extends Component{
 
@@ -31,7 +34,7 @@ class SingleProduct extends Component{
                 </Card>                               
               </div>
             </Col>
-            <Col xs={12} sm={12} md={5} lg={5}>
+            <Col xs={12} sm={12} md={6} lg={6}>
               <div className="headingClass">
                 <h2 className="card-title">{this.state.product.name}</h2>
               </div>
@@ -49,17 +52,24 @@ class SingleProduct extends Component{
                   <Card.Text>
                     <b>Available Quantity:&nbsp;</b> {this.state.product.availableQty}
                   </Card.Text>
+                  <Form>
+                  <Form.Row>
+                    <Form.Group as={Col} md="4">
+                        <Form.Label><b>Quantity</b></Form.Label>
+                        <Form.Control placeholder="0" className = "from-control"  type="Number" value={this.state.qty} onChange={this.onChangeAddress}/>
+                    </Form.Group>
+                  </Form.Row>
+                  </Form>  
                 </Card.Body>
-              </div>
-              <br />
-              <div className = "Add to Cart" >
-                <a href = "/" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "23rem"}}>Add to Cart</a>
-              </div> 
-              <br/>
-              <div className = "View Cart" >
-                <a href = "/ViewCart" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "12rem"}}>View Cart</a>
-                <a href = "/" className = "btn btn-warning" style={{marginLeft: "15px"}} onClick={this.home}>Continue Shopping</a>
-              </div>
+                  <div className = "Add to Cart" >
+                        <a href = "/" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "23rem"}}>Add to Cart</a>
+                  </div> 
+                  <br/>
+                  <div className = "View Cart" >
+                        <a href = "/ViewCart" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "12rem"}}>View Cart</a>
+                        <a href = "/" className = "btn btn-warning" style={{marginLeft: "15px"}} onClick={this.home}>Continue Shopping</a>
+                  </div>
+              </div>              
             </Col>
           </Row>
         </Card>
