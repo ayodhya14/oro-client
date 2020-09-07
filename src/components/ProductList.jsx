@@ -60,6 +60,7 @@ class ProductList extends Component {
         }
     }
     async allProducts() {
+        console.log('in all');
         let { data } = await axios.get("http://localhost:5000/api/products");
         console.log(data);
 
@@ -103,51 +104,12 @@ class ProductList extends Component {
     }
 
     async categoryFilterFunction(categoryName) {
-        
-        let { data } = await axios.get("http://localhost:5000/api/products");
-        this.setState({ filterallProducts: data }, () => {
-            this.filterCategory(categoryName);
-        });
-    }
-
-    filterCategory(categoryName) {
-        //Assing all product to new variable
-        let filterProduct;
-        filterProduct = this.state.filterallProducts;
-        //Filter new variable 
-        if (categoryName === "Bangle") {
-            filterProduct = filterProduct.filter(function (item) {
-                return item.productType === 'Bangle';
-            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
-                return { id, imageUrl, description, availableQty, unitPrice, name };
-            });
-
-        } if (categoryName === "Necklace") {
-            filterProduct = filterProduct.filter(function (item) {
-                return item.productType === 'Necklace';
-            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
-                return { id, imageUrl, description, availableQty, unitPrice, name };
-            });
-
-        } if (categoryName === "Earring") {
-            filterProduct = filterProduct.filter(function (item) {
-                return item.productType === 'Earring';
-            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
-                return { id, imageUrl, description, availableQty, unitPrice, name };
-            });
-
-        } if (categoryName === "Pendent") {
-            filterProduct = filterProduct.filter(function (item) {
-                return item.productType === 'Pendent';
-            }).map(function ({ id, imageUrl, description, availableQty, unitPrice, name }) {
-                return { id, imageUrl, description, availableQty, unitPrice, name };
-            });
-        }
-
-        //Loop filtered array
-        let products = filterProduct.map((product) => {
+        console.log('in category');
+        //filtering data according to category
+        let { data } = await axios.get(`http://localhost:5000/api/products/name/${categoryName}`);
+        let products = data.map((product) => {
             return {
-                id: product.id,
+                id: product._id,
                 productType: product.productType,
                 imageUrl: product.imageUrl,
                 description: product.description,
@@ -156,8 +118,13 @@ class ProductList extends Component {
                 name: product.name,
             };
         });
-        //Assing new array to display values
+        console.log(products);
         this.setState({ allProducts: products });
+        // this.setState({ filterallProducts: data }, () => {
+        //     this.filterCategory(categoryName);
+        // });
     }
+
+   
 }
 export default ProductList;
