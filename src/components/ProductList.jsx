@@ -19,12 +19,14 @@ class ProductList extends Component {
         return (
             <div className="productListParentClass">
                 <Row style ={{}}>
-                    <Col sm="12" md={{ size: 6, offset: 4 }} lg={{ size: 6, offset: 4 }}>
-                        <Button onClick={() => this.allProducts()} style={{ width: "10%", borderRadius: 0, borderTopLeftRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">All</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Bangle')} style={{ width: "16%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Bangle</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Necklace')} style={{ width: "20%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Necklace</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Earring')} style={{ width: "16%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Earring</Button>
-                        <Button onClick={() => this.categoryFilterFunction('Pendent')} style={{ width: "22%", borderRadius: 0, borderTopRightRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">Pendent</Button>
+                    <Col cols="12">
+                        <div style={{display: "flex", justifyContent: "center"}}>
+                            <Button onClick={() => this.allProducts()} style={{ width: "10%", borderRadius: 0, borderTopLeftRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">All</Button>
+                            <Button onClick={() => this.categoryFilterFunction('Bangle')} style={{ width: "16%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Bangle</Button>
+                            <Button onClick={() => this.categoryFilterFunction('Necklace')} style={{ width: "20%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Necklace</Button>
+                            <Button onClick={() => this.categoryFilterFunction('Earring')} style={{ width: "16%", borderRadius: 0, marginBottom: "1%" }} variant="warning" size="lg">Earring</Button>
+                            <Button onClick={() => this.categoryFilterFunction('Pendent')} style={{ width: "22%", borderRadius: 0, borderTopRightRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">Pendent</Button>
+                        </div>
                     </Col>
                 </Row>
                 <Row xs={1} sm={2} md={3} lg={4}>
