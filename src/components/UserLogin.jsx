@@ -69,18 +69,6 @@ class UserLogin extends Component {
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12}>
                   <Form onSubmit={this.login}>
-                    <Row>
-                      <Col>
-                        <Login />
-                      </Col>
-                    </Row>
-                    <Row style={{ marginLeft: "48%", color: "#a4a0a7" }} className="mt-4 mb-4">
-                      <div>
-                        <h5>
-                          OR
-                        </h5>
-                      </div>
-                    </Row>
                     <Form.Group controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
                       <Form.Control value={this.state.email} onChange={this.onChangeEmail} type="email" placeholder="Enter email" />
@@ -115,15 +103,29 @@ class UserLogin extends Component {
                     >
                       Login
                     </Button>
-                  </Form>
-                  <div className="parentClassForAnqure">
+                    <div className="parentClassForAnqure">
                     <a
                       href="/ViewUserRegister"
                       className="anquerTagNewUser"
                     >
-                      New User?
+                      Not Registered Yet? Click Here
                     </a>
                   </div>
+                  <Row style={{ marginLeft: "48%", color: "#a4a0a7" }} className="mt-4 mb-4">
+                      <div>
+                        <h5>
+                          OR
+                        </h5>
+                      </div>
+                    </Row>
+                  <Row>
+                      <Col>
+                        <Login />
+                      </Col>
+                    </Row>
+                   
+                  </Form>
+                  
                 </Col>
               </Row>
             </Card>

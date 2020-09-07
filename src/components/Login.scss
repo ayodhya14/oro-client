@@ -5,13 +5,13 @@
     align-items: center;
     color: rgba(0, 0, 0, 0.54);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
-    padding: 0px 262px !important;
+    padding: 0px 163px !important;
     border-radius: 2px;
     border: 1px solid transparent;
     font-size: 14px;
     font-weight: 500;
     font-family: Roboto, sans-serif;
-    float: right !important;
+    margin-left: 14%;
     margin-bottom: 2% !important;
 }
 
@@ -28,6 +28,7 @@
     transition: background-color .3s,border-color .3s;
     background-color: #4c69ba;
     border: calc(.06887vw + .67769px) solid #4c69ba;
-    padding: 9px 263px 14px 264px !important;
+    padding: 8px 155px 10px 173px !important;
+    margin-left: 14%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
 }
