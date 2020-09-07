@@ -18,79 +18,8 @@ import "./Checkout.scss";
 class Checkout extends Component{
     constructor(props){
         super(props);
-        
-// //Bind Order feilds to Input form
-//     this.onChangeUserId = this.onChangeUserId.bind(this);
-//     this.onChangeProductId = this.onChangeProductId.bind(this);
-//     this.onChangeQuantity = this.onChangeQuantity.bind(this);
-//     this.onChangeSubTotal = this.onChangeSubTotal.bind(this);
-//     this.onChangeTotal = this.onChangeTotal.bind(this);
-//     this.onChangeDate = this.onChangeDatel.bind(this);
-//     this.saveOrder = this.saveOrder.bind(this);
-   
-//     this.state = { 
-//         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
-//     }
-// }
-// onChangeUserId(e){
-//     this.setState({ userId: e.target.value});
-// }
-
-// onChangeProductId(e){
-//     this.setState({ productId: e.target.value});
-// }
-
-// onChangeQuantity(e){
-//     this.setState({ qty: e.target.value});
-// }
-
-// onChangeSubTotal(e){
-//     this.setState({ subTotal: e.target.value});
-// }
-
-// onChangeTotal(e){
-//     this.setState({ total: e.target.value});
-// }
-
-// onChangeDate(e){
-//     this.setState({ date: e.target.value});
-// }
-
-//   submitUser(){
-//       const obj = {
-//           userId: this.state.userId,
-//           productId: this.state.productId,
-//           qty: this.state.qty,
-//           subTotal: this.state.subTotal,
-//           total: this.state.total,
-//           date: this.state.date,
-//       };
-//       Axios.post('http://localhost:5000/api/orders/', obj).then(res => console.log(res.data));
- 
-//       this.setState({
-//         userId: '', productId: '', qty: '', subTotal: '', total: '', date: ''
-//       });   
-//   }
-
-//   componentDidMount(){
-//       Axios.get('http://localhost:5000/api/orders/').then(response =>{
-//           this.setState({
-//               userId: response.date.userId,
-//               productId: response.date.productId,
-//               qty: response.date.qty,
-//               subTotal: response.date.subTotal,
-//               total: response.date.total,
-//               date: response.date.date,
-//           });
-//           console.log(response.data)
-//       })
-//       .catch(function (error){
-//           console.log(error);
-//       });
- 
- 
- 
-      this.state = {
+         
+        this.state = {
             price: "",
             qty: "",
             paymentType: "Payment Type",

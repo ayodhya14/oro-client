@@ -92,7 +92,6 @@ submitUser = event => {
         console.log(res);
     })
 }
-
   render() {
     return (
         <div className = "UserRegisterParentClass">

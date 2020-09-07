@@ -33,6 +33,22 @@ class Header extends Component{
         // localStorage.removeItem("cart");
     }
     
+
+    //Check the user login or not before click the cart
+    //   ViewCartFunction = () => {
+
+    //       let userLogin = "login"
+    //       let userLogout = "logout"
+    //       if(userid === login){
+    //           <ViewCart />
+    //       }
+    //       else if(userid === logout){
+    //           <UserLogin />
+    //       }
+    //   };
+
+
+
     render() {
         return (
             <div className="headerParentClass">
