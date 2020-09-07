@@ -21,7 +21,7 @@ class Cart extends Component {
         this.state = {
             price: "",
             qty: "",
-
+            cartItemsArray: [],
             tableData: [
                 {
                     image: "https://ae01.alicdn.com/kf/HTB1.AgdajzuK1RjSspeq6ziHVXaS/Rhinestone-Happy-Family-Ring-Mother-Father-Girl-Boy-Design-Rings-for-Family-Merry-Christmas-New-Year.jpg_960x960.jpg",
@@ -61,7 +61,25 @@ class Cart extends Component {
             price: price,
             qty: qty,
         });
+        this.handleCartItems();
     };
+
+    handleCartItems = () => {
+        let val = localStorage.getItem('cartItems').split(",");
+        val[0] = val[0].replace("{", "");
+        val[val.length - 1] = val[val.length - 1].replace("}", "");
+        for (let x = 0; x < val.length; x++) {
+            let obj = {
+                id: "",
+                qty: ""
+            }
+            obj.id = val[x].split(":")[0];
+            obj.qty = val[x].split(":")[1];
+            val[x] = obj;
+        }
+        this.state.cartItemsArray = val;
+        console.log(this.state.cartItemsArray);
+    }
 
     onClickRemoveItem = (id) => {
         alert(id);

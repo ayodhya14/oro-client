@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import "./Product.scss";
 
@@ -8,55 +8,37 @@ class Product extends Component {
         super(props)
         this.state = {
             productId: this.props.product.id,
-            cartItemArray: [],
+            cartItemIds: [],
             quantity: 1,
         };
     }
-    
-    // //add to cart -  local storage
-    // onClickAddToCartItem = event => 
-    //       this.setState({[event.target.name]: event.target.value})
-    //   addToCart = () => {
-    //     let cart = localStorage.getItem('cart') 
-    //                   ? JSON.parse(localStorage.getItem('cart')) : {};
-    //     let id = this.props.product.id.toString();
-    //     cart[id] = (cart[id] ? cart[id]: 0);
-    //     let qty = cart[id] + parseInt(this.state.quantity);
-    //     if (this.props.product.available_quantity < qty) {
-    //       cart[id] = this.props.product.available_quantity; 
-    //     } else {
-    //       cart[id] = qty
-    //     }
-    //     localStorage.setItem('cart', JSON.stringify(cart));
-    //   }
 
-    //   componentDidMount() {
-
-    //     let cart = localStorage.getItem('cart');
-    //     if (!cart) return; 
-    //     getCartProducts(cart).then((products) => {
-    //       let total = 0;
-    //       for (var i = 0; i < products.length; i++) {
-    //         total += products[i].price * products[i].qty;
-    //       }
-    //       this.setState({ products, total });
-    //       });
-    //   }
-
-    //   removeFromCart = (product) => {
-    //     let products = this.state.products.filter((item) => item.id !== product.id);
-    //     let cart = JSON.parse(localStorage.getItem('cart'));
-    //     delete cart[product.id.toString()];
-    //     localStorage.setItem('cart', JSON.stringify(cart));
-    //     let total = this.state.total - (product.qty * product.price) 
-    //     this.setState({products, total});
-    //   }
-
-
-    onClickAddToCartItem(id) {
-        alert(id);
-    }
-
+    onClickAddToCartItem = (id) => {
+        let cartItem = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : {};
+        let productId = id;
+        cartItem[productId] = (cartItem[productId] ? cartItem[productId]: 0);
+        let qty = cartItem[productId] + parseInt(this.state.quantity);
+        if (this.props.product.availableQty < qty) {
+            cartItem[productId] = this.props.product.availableQty; 
+        } else {
+            cartItem[productId] = qty
+        }
+        localStorage.setItem('cartItems', JSON.stringify(cartItem));
+        let val = localStorage.getItem('cartItems').split(",");
+        val[0] = val[0].replace("{", "");
+        val[val.length - 1] = val[val.length - 1].replace("}", "");
+        for (let x = 0; x < val.length; x++) {
+            let obj = {
+                id: "",
+                qty: ""
+            }
+            obj.id = val[x].split(":")[0];
+            obj.qty = val[x].split(":")[1];
+            val[x] = obj;
+        }
+        localStorage.setItem('cartItemsLength', val.length);
+        window.location.reload();
+      }
 
     render() {
         return (
