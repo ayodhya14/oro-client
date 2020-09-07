@@ -14,20 +14,21 @@ class Login extends Component {
         const onSuccess = (res) => {
             //    console.log('[Login Success] currentUser:', res.profileObj);
             let name = res.profileObj.name;
-            let imageUrl = res.profileObj.imageUrl;
-            console.log(imageUrl);
             this.setState({ userName: name });
+            localStorage.setItem("LoginWithGoogle", true);
             window.location.href = "http://localhost:3000/";
         };
 
         const onFailure = (res) => {
             console.log("[Login Failed] res:", res);
+            localStorage.setItem("LoginWithGoogle", false);
         };
 
         const facebookResponse = (res) => {
             console.log(res);
             let name = res.name;
             this.setState({ userName: name });
+            localStorage.setItem("LoginWithGoogle", true);
             window.location.href = "http://localhost:3000/";
         };
 

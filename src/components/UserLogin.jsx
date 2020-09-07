@@ -52,6 +52,7 @@ class UserLogin extends Component {
           console.log("this.state.token");
           localStorage.setItem("userTokenORO", res.data.token);
           console.log(localStorage.userTokenORO);
+          window.location.reload();
       })
     }
 

@@ -19,9 +19,19 @@ import TabView from "./TabView";
 import "./Header.scss";
 
 class Header extends Component{
-    state = {
-        name : String,
-      };
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            name : String,
+        };
+    };
+
+    logOut() {
+        localStorage.removeItem("userTokenORO");
+        localStorage.removeItem("LoginWithGoogle");
+        // localStorage.removeItem("cart");
+    }
     
     render() {
         return (
@@ -60,7 +70,7 @@ class Header extends Component{
                         <Row className="loginRowCall" style={{marginTop: "16px"}}>
                             <Col xs={4} sm={4} md={2} lg={2} className="headerLinks">
                                 {
-                                    !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">User Login</a> : <Logout />
+                                    !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">User Login</a> : localStorage.LoginWithGoogle == true ? <Logout /> : <a style={{color: "#fefefe"}} onClick={() => this.logOut()} href="/">Log Out</a>
                                 }
                             </Col>
                             <Col xs={4} sm={4} md={2} lg={2} style={{display: "flex", justifyContent: "center"}} className="headerLinks">
@@ -68,25 +78,12 @@ class Header extends Component{
                             </Col>
                             <Col xs={4} sm={4} md={8} lg={8} className="headerLinks"></Col>
                         </Row>
-                        {/* <Col>
-                            <Logout />
-                        </Col> */}
+                        {/* <Logout /> */}
                     </Col>
                 </Row>
             </div>
         );
     }
-
-   
-    
-    constructor(props) {
-
-        super(props);
-       
-      }
-
-    
-
 }
 
 export default Header;
