@@ -16,9 +16,11 @@
     color: #ffffff;
 }
 
-// link {
-//     color: #ffffff !important;
-// }
+@media (max-width: 500px) {
+  .loginRowCall {
+    padding-left: 35px;
+  }
+}
 
 a:hover {
     color: #c7c7c7 !important;
