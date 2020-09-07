@@ -31,6 +31,7 @@ class Product extends Component {
     //   }
 
     //   componentDidMount() {
+
     //     let cart = localStorage.getItem('cart');
     //     if (!cart) return; 
     //     getCartProducts(cart).then((products) => {
@@ -60,16 +61,15 @@ class Product extends Component {
 
     render() {
         return (
-            
-          <div className="card" onClick ={()=> this.props.onClick(this.state.productId)} style={{height: "95%", marginBottom: "20px"}}>
-                
+           
+          <div className="card" onClick ={()=> this.props.onClick(this.props.product.id)} style={{height: "95%", marginBottom: "20px"}}>
                 <div className="card-body" >
                     <h5 className="card-title">{this.props.product.productType}</h5>
                  
                          <img className="card-img productImg" src={this.props.product.imageUrl} alt="Product Image"/>
                     <div className="centerClass" >
                         
-                            <h5 className="cardProductName" onClick ={(event)=> this.props.onClick(this.state.productId)}>{this.props.product.name}</h5>
+                            <h5 className="cardProductName" onClick ={(event)=> this.props.onClick(this.props.product.id)}>{this.props.product.name}</h5>
                     </div>
                     <div className="centerClass">
                         <h6 className="card-title">Rs.{this.props.product.unitPrice}</h6>
