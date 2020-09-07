@@ -23,6 +23,22 @@ class Header extends Component{
         name : String,
       };
     
+
+    //Check the user login or not before click the cart
+    //   ViewCartFunction = () => {
+
+    //       let userLogin = "login"
+    //       let userLogout = "logout"
+    //       if(userid === login){
+    //           <ViewCart />
+    //       }
+    //       else if(userid === logout){
+    //           <UserLogin />
+    //       }
+    //   };
+
+
+
     render() {
         return (
             <div className="headerParentClass">
@@ -63,7 +79,7 @@ class Header extends Component{
                                 <a style={{color: "#fefefe"}} href="/User Profile" >Profile</a>
                             </Col>
                             <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
-                                <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
+                                <a href = "/viewCart" onClick = "ViewCartFunction" ><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp;</Badge></a>
                             </Col>
                         </Row>
                         {/* <Col>
