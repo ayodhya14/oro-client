@@ -50,7 +50,7 @@ class Header extends Component{
                     </Col>
                     <Col xs={9} sm={10} md={10} lg={10}>
                         <Row style={{ marginTop: "60px" }}>
-                            <Col xs={6} sm={6} md={6} lg={6} className="headerLinks">
+                            <Col xs={10} sm={10} md={10} lg={10} className="headerLinks">
                                 <div className="search">
                                     <form
                                         action="#"
@@ -70,17 +70,19 @@ class Header extends Component{
                                 </div>
                             </Col>
                             <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
+                                <a href = "/viewCart"><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; 3</Badge></a>
+                            </Col>
+                        </Row>
+                        <Row className="loginRowCall" style={{marginTop: "16px"}}>
+                            <Col xs={4} sm={4} md={2} lg={2} className="headerLinks">
                                 {
-                                    !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">Login</a> : <Logout />
+                                    !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">User Login</a> : <Logout />
                                 }
-                                {/* <a style={{color: "#fefefe"}} href="/ViewUserLogin">Login</a> */}
                             </Col>
-                            <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
-                                <a style={{color: "#fefefe"}} href="/User Profile" >Profile</a>
+                            <Col xs={4} sm={4} md={2} lg={2} style={{display: "flex", justifyContent: "center"}} className="headerLinks">
+                                <a style={{color: "#fefefe"}} href="/User Profile" >User Profile</a>
                             </Col>
-                            <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
-                                <a href = "/viewCart" onClick = "ViewCartFunction" ><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp;</Badge></a>
-                            </Col>
+                            <Col xs={4} sm={4} md={8} lg={8} className="headerLinks"></Col>
                         </Row>
                         {/* <Col>
                             <Logout />
