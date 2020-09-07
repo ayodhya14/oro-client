@@ -14,10 +14,6 @@ class ProductList extends Component {
         productId:1
 
     };
-    // setProductValue(value){
-    //     this.setState({ productId: value });
-    //     this.props.onClick(this.state.productId);
-    // }
 
     render() {
         return (

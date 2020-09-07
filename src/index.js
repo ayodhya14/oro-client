@@ -22,7 +22,7 @@ ReactDOM.render(<BrowserRouter>
     <Route exact path="/viewUserLogin" component={ViewUserLogin} />
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
     <Route exact path="/User Profile" component={TabView} />
-    <Route exact path="/viewSingleProduct" component={ViewSingleProduct} />
+    <Route exact path="/viewSingleProduct/:id" component={ViewSingleProduct} />
     
   </BrowserRouter>,
  document.getElementById('root'));

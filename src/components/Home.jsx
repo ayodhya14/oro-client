@@ -19,9 +19,6 @@ function Home() {
             <div className="mainHeaderClass">
                 <Header onChange={(value) => setTerm(value)} />
             </div>
-            {/* <div className="mainSliderClass">
-                <MainSlider />
-            </div> */}
             <div className = "mainProductListClass">
                 {
                     !(productId) ?
