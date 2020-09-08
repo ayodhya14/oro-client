@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter,Link, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 import Jewellery from './components/Home.jsx';
 import ViewCart from './components/ViewCart.jsx'
@@ -9,13 +9,14 @@ import ViewUserLogin from './components/ViewUserLogin.jsx';
 import ViewUserRegister from './components/ViewUserRegister.jsx';
 import TabView from './components/TabView.jsx';
 import ViewSingleProduct from './components/ViewSingleProduct.jsx';
+import QrGenerator from './components/QrGenerator.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
  {/* This line can be included in your src/index.js or App.js file*/}
 
-
-ReactDOM.render(<BrowserRouter>
+ReactDOM.render(
+  <BrowserRouter>
     <Route exact path="/" component={Jewellery} />
     <Route exact path="/viewCart" component={ViewCart} />
     <Route exact path="/viewCheckout" component={ViewCheckout} />
@@ -23,6 +24,6 @@ ReactDOM.render(<BrowserRouter>
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
     <Route exact path="/User Profile" component={TabView} />
     <Route exact path="/viewSingleProduct/:id" component={ViewSingleProduct} />
-    
+    <Route exact path="/qr_generator" component={QrGenerator} />
   </BrowserRouter>,
  document.getElementById('root'));

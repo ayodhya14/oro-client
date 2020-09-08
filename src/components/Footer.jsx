@@ -30,7 +30,7 @@ class Footer extends Component{
                             <h5>Home</h5>
                         </a>
                         {/* <li><Link to="/Home"><h5>Home</h5></Link></li> */}
-                        <a style={{color: "#fefefe"}} className="link" href="/">
+                        <a style={{color: "#fefefe"}} className="link" href="/qr_generator">
                             <h5>About </h5>
                         </a>
                         <a style={{color: "#fefefe"}} className="link" href="/">
