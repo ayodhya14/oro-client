@@ -10,59 +10,66 @@ const clientId =
 const appId = "1798874110260550";
 
 class Login extends Component {
-    state = { userName: " " };
+    constructor(props) {
+        super(props);
+        this.state = {
+            userName: "",
+        };
+    };
+
+    onSuccess = (res) => {
+        alert("12");
+        //    console.log('[Login Success] currentUser:', res.profileObj);
+        console.log(res.profileObj);
+        // let name = res.profileObj.name;
+        this.setState({ userName: res.profileObj.name });
+        localStorage.setItem("LoginWithGoogle", true);
+        // window.location.href = "http://localhost:3000/";
+        localStorage.setItem("username", res.profileObj.name);
+
+        const obj = {
+            firstName: res.profileObj.givenName,
+            lastName: res.profileObj.familyName,
+            googleId: res.profileObj.googleId,
+            email: res.profileObj.email,
+            loginWithGoogle: true
+          };
+          
+          axios.post(`http://localhost:5000/api/auth`, obj)
+            .then(res => {
+              this.setState({
+                token: res.data.token
+              });
+              localStorage.setItem("userTokenORO", res.data.token);
+              localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
+              console.log(localStorage.OROLoginUser);
+              window.location.reload();
+              window.location.href = "http://localhost:3000/";
+          })
+    };
+
+    onFailure = (res) => {
+        console.log("[Login Failed] res:", res);
+        localStorage.setItem("LoginWithGoogle", false);
+    };
+
+    facebookResponse = (res) => {
+        console.log(res);
+        let name = res.name;
+        this.setState({ userName: name });
+        localStorage.setItem("LoginWithGoogle", true);
+        // window.location.href = "http://localhost:3000/";
+    };
+
     render() {
-        const onSuccess = (res) => {
-            //    console.log('[Login Success] currentUser:', res.profileObj);
-            console.log(res.profileObj);
-            // let name = res.profileObj.name;
-            this.setState({ userName: res.profileObj.name });
-            localStorage.setItem("LoginWithGoogle", true);
-            // window.location.href = "http://localhost:3000/";
-            localStorage.setItem("username", res.profileObj.name);
-
-            const obj = {
-                firstName: res.profileObj.givenName,
-                lastName: res.profileObj.familyName,
-                googleId: res.profileObj.googleId,
-                email: res.profileObj.email,
-                loginWithGoogle: true
-              };
-              
-              axios.post(`http://localhost:5000/api/auth`, obj)
-                .then(res => {
-                  this.setState({
-                    token: res.data.token
-                  });
-                  localStorage.setItem("userTokenORO", res.data.token);
-                  localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
-                  console.log(localStorage.OROLoginUser);
-                  window.location.reload();
-                  window.location.href = "http://localhost:3000/";
-              })
-        };
-
-        const onFailure = (res) => {
-            console.log("[Login Failed] res:", res);
-            localStorage.setItem("LoginWithGoogle", false);
-        };
-
-        const facebookResponse = (res) => {
-            console.log(res);
-            let name = res.name;
-            this.setState({ userName: name });
-            localStorage.setItem("LoginWithGoogle", true);
-            // window.location.href = "http://localhost:3000/";
-        };
-
         return (
             <div>
                 <GoogleLogin
                     className="google-btn"
                     clientId={clientId}
                     buttonText="Login with Google"
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
+                    onSuccess={this.onSuccess}
+                    onFailure={this.onFailure}
                     cookiePolicy={"single_host_origin"}
                     style={{ marginTop: "100px" }}
                     isSignedIn={true}
@@ -72,7 +79,7 @@ class Login extends Component {
                     appId={appId}
                     autoLoad={false}
                     fields="name,email,picture"
-                    callback={facebookResponse}
+                    callback={this.facebookResponse}
                 />
 
                 {/* <p style={{ color: "#000000" }}>{this.state.userName}</p> */}
