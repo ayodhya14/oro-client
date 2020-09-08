@@ -54,7 +54,6 @@ class UserLogin extends Component {
           });
           localStorage.setItem("userTokenORO", res.data.token);
           localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
-          console.log(localStorage.OROLoginUser);
           window.location.reload();
           window.location.href = "http://localhost:3000/";
       })
