@@ -55,6 +55,7 @@ class UserLogin extends Component {
           localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
           console.log(localStorage.OROLoginUser);
           window.location.reload();
+          window.location.href = "http://localhost:3000/";
       })
     }
 
@@ -106,6 +107,7 @@ class UserLogin extends Component {
                     >
                       Login
                     </Button>
+                     
                     <div className="parentClassForAnqure">
                     <a
                       href="/ViewUserRegister"

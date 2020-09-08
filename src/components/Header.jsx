@@ -34,6 +34,10 @@ class Header extends Component{
         localStorage.removeItem("OROLoginUser");
         localStorage.removeItem("cartItems");
     }
+
+    // login = event => {
+    //     window.location.href = "http://localhost:3000/ViewUserLogin";
+    // }
     
     render() {
         return (
@@ -72,8 +76,8 @@ class Header extends Component{
                         <Row className="loginRowCall" style={{marginTop: "16px"}}>
                             <Col xs={4} sm={4} md={2} lg={2} className="headerLinks">
                                 {
-                                   !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">User Login</a> : localStorage.LoginWithGoogle == true ? <Logout /> : <a style={{color: "#fefefe"}} onClick={() => this.logOut()} href="/">Log Out</a>
-                                }
+                                   !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin" onClick={() => this.logIn()}>User Login</a> : localStorage.LoginWithGoogle == true ? <Logout /> : <a style={{color: "#fefefe"}} onClick={() => this.logOut()} href="/">Log Out</a>
+                                }   
                             </Col>
                             <Col xs={4} sm={4} md={2} lg={2} style={{display: "flex", justifyContent: "center"}} className="headerLinks">
                                 <a style={{color: "#fefefe"}} href="/User Profile" >User Profile</a>
