@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 
@@ -13,10 +14,30 @@ class Login extends Component {
     render() {
         const onSuccess = (res) => {
             //    console.log('[Login Success] currentUser:', res.profileObj);
-            let name = res.profileObj.name;
-            this.setState({ userName: name });
+            console.log(res.profileObj);
+            // let name = res.profileObj.name;
+            this.setState({ userName: res.profileObj.name });
             localStorage.setItem("LoginWithGoogle", true);
-            window.location.href = "http://localhost:3000/";
+            // window.location.href = "http://localhost:3000/";
+            localStorage.setItem("username", res.profileObj.name);
+
+            const obj = {
+                name: res.profileObj.name,
+                googleId: res.profileObj.googleId,
+                email: res.profileObj.email,
+                loginWithGoogle: true
+              };
+              axios.post(`http://localhost:5000/api/auth`, obj)
+                .then(res => {
+                  this.setState({
+                    token: res.data.token
+                  });
+                  localStorage.setItem("userTokenORO", res.data.token);
+                  localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
+                  console.log(localStorage.OROLoginUser);
+                  window.location.reload();
+                  window.location.href = "http://localhost:3000/";
+              })
         };
 
         const onFailure = (res) => {
@@ -29,7 +50,7 @@ class Login extends Component {
             let name = res.name;
             this.setState({ userName: name });
             localStorage.setItem("LoginWithGoogle", true);
-            window.location.href = "http://localhost:3000/";
+            // window.location.href = "http://localhost:3000/";
         };
 
         return (

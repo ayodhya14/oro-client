@@ -44,7 +44,8 @@ class UserLogin extends Component {
 
       const obj = {
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
+        loginWithGoogle: false
       };
       axios.post(`http://localhost:5000/api/auth`, obj)
         .then(res => {
