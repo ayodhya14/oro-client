@@ -11,7 +11,7 @@ class AccountTab extends Component {
     render() {
         return (
             <div className = "qrClass">
-                <QRCode value={this.state.value} />,
+                <QRCode value="http://facebook.github.io/react/" />,
             </div>
         );
     }
