@@ -38,7 +38,7 @@ class Product extends Component {
         }
         localStorage.setItem('cartItemsLength', val.length);
         window.location.reload();
-      }
+    }
 
     render() {
         return (

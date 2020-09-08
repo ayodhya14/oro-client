@@ -15,6 +15,7 @@ import Login from "./Login";
 import Recaptcha from "./Recaptcha";
 import Logout from "./Logout";
 import axios from "axios";
+import Alert from 'react-bootstrap/Alert'
 
 class UserLogin extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class UserLogin extends Component {
     //Bind Login feilds to Input form
       this.onChangeEmail = this.onChangeEmail.bind(this);
       this.onChangePassword = this.onChangePassword.bind(this);
+      
 
       this.state = {
         email: '', password: '', token: ''
@@ -49,9 +51,9 @@ class UserLogin extends Component {
           this.setState({
             token: res.data.token
           });
-          console.log("this.state.token");
           localStorage.setItem("userTokenORO", res.data.token);
-          console.log(localStorage.userTokenORO);
+          localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
+          console.log(localStorage.OROLoginUser);
           window.location.reload();
       })
     }

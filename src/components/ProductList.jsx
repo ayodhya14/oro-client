@@ -18,7 +18,7 @@ class ProductList extends Component {
     render() {
         return (
             <div className="productListParentClass">
-                <Row style ={{}}>
+                <Row>
                     <Col cols="12">
                         <div style={{display: "flex", justifyContent: "center"}}>
                             <Button onClick={() => this.allProducts()} style={{ width: "10%", borderRadius: 0, borderTopLeftRadius: "20px", marginBottom: "1%" }} variant="warning" size="lg">All</Button>

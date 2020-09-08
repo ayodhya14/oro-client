@@ -64,6 +64,7 @@ class Cart extends Component {
         this.handleCartItems();
     };
 
+    // handle the locle storage cart items array function.
     handleCartItems = () => {
         let val = localStorage.getItem('cartItems').split(",");
         val[0] = val[0].replace("{", "");

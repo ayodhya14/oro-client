@@ -31,7 +31,8 @@ class Header extends Component{
         // remove all the localStorage values
         localStorage.removeItem("userTokenORO");
         localStorage.removeItem("LoginWithGoogle");
-        // localStorage.removeItem("cart");
+        localStorage.removeItem("OROLoginUser");
+        localStorage.removeItem("cartItems");
     }
     
     render() {
@@ -65,7 +66,7 @@ class Header extends Component{
                                 </div>
                             </Col>
                             <Col xs={2} sm={2} md={2} lg={2} className="headerLinks">
-                                <a href={localStorage.getItem('cartItemsLength') ? "/viewCart" : "/"}><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; {localStorage.getItem('cartItemsLength')}</Badge></a>
+                                <a href={localStorage.getItem('cartItemsLength') && localStorage.getItem('userTokenORO') ? "/viewCart" : "/"}><Badge pill variant="warning" style={{cursor: "pointer", marginRight: "30px" }}><FaShoppingCart style={{ cursor: "pointer", width: "2vh", height: "3vh" }}  />&nbsp; {localStorage.getItem('cartItemsLength')}</Badge></a>
                             </Col>
                         </Row>
                         <Row className="loginRowCall" style={{marginTop: "16px"}}>
