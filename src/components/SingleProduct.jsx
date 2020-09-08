@@ -84,6 +84,7 @@ class SingleProduct extends Component{
     // get the product id from url   =>    window.location.pathname.split("/viewSingleProduct/")[1];
     let  {data}  = await axios.get(`http://localhost:5000/api/products/${window.location.pathname.split("/viewSingleProduct/")[1]}`);
     this.setState({ product: data });
+    console.log(window.location.pathname);
   }
 }
 export default SingleProduct;

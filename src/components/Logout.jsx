@@ -8,7 +8,8 @@ class Logout extends Component {
 
     render() {
         const onSuccess = () => {
-            localStorage.removeItem();
+            // localStorage.removeItem();
+            window.location.href = "http://localhost:3000/";
         };
 
         return (
