@@ -22,11 +22,13 @@ class Login extends Component {
             localStorage.setItem("username", res.profileObj.name);
 
             const obj = {
-                name: res.profileObj.name,
+                firstName: res.profileObj.givenName,
+                lastName: res.profileObj.familyName,
                 googleId: res.profileObj.googleId,
                 email: res.profileObj.email,
                 loginWithGoogle: true
               };
+              
               axios.post(`http://localhost:5000/api/auth`, obj)
                 .then(res => {
                   this.setState({
