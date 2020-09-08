@@ -26,14 +26,14 @@ class Footer extends Component{
                     </Col>
                     {/* Home, About Us, Branchers */}
                     <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "4%" , marginTop: "3vh"}}>
-                         <a style={{color: "#fefefe"}} className="link" href="/ourLocation">
-                            <h5>Our Location</h5>
+                         <a style={{color: "#fefefe"}} className="link" href="/">
+                            <h5>Home</h5>
                         </a>
                         {/* <li><Link to="/Home"><h5>Home</h5></Link></li> */}
-                        <a style={{color: "#fefefe"}} className="link" href="/ourLocation">
-                            <h5>About </h5>
-                        </a>
                         <a style={{color: "#fefefe"}} className="link" href="/">
+                            <h5>About</h5>
+                        </a>
+                        <a style={{color: "#fefefe"}} className="link" href="/ourLocation">
                             <h5>Branchers</h5>
                         </a>
                     </Col>

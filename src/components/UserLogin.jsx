@@ -104,6 +104,7 @@ class UserLogin extends Component {
                       variant="warning"
                       type="submit"
                       style={{ width: "100%" , fontSize: "18px"}}
+                      disabled={localStorage.recapture}
                     >
                       Login
                     </Button>
