@@ -75,7 +75,7 @@ class Login extends Component {
                     callback={facebookResponse}
                 />
 
-                <p style={{ color: "#000000" }}>{this.state.userName}</p>
+                {/* <p style={{ color: "#000000" }}>{this.state.userName}</p> */}
 
                 <div></div>
             </div>
