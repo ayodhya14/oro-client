@@ -9,7 +9,7 @@ import ViewUserLogin from './components/ViewUserLogin.jsx';
 import ViewUserRegister from './components/ViewUserRegister.jsx';
 import TabView from './components/TabView.jsx';
 import ViewSingleProduct from './components/ViewSingleProduct.jsx';
-import QrGenerator from './components/QrGenerator.jsx';
+import MapView from './components/MapView.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,6 +24,6 @@ ReactDOM.render(
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
     <Route exact path="/User Profile" component={TabView} />
     <Route exact path="/viewSingleProduct/:id" component={ViewSingleProduct} />
-    <Route exact path="/qr_generator" component={QrGenerator} />
+    <Route exact path="/ourLocation" component={MapView} />
   </BrowserRouter>,
  document.getElementById('root'));

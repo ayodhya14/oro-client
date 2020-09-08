@@ -77,7 +77,7 @@ class Header extends Component{
                         <Row className="loginRowCall" style={{marginTop: "16px"}}>
                             <Col xs={4} sm={4} md={2} lg={2} className="headerLinks">
                                 {
-                                   !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">User Login</a> : localStorage.LoginWithGoogle == true ? <Logout /> : <a style={{color: "#fefefe"}} onClick={() => this.logOut()} href="/">Log Out</a>
+                                   !localStorage.userTokenORO ? <a style={{color: "#fefefe"}} href="/ViewUserLogin">User Login</a> : localStorage.LoginWithGoogle == true ? <a style={{color: "#fefefe"}} onClick={() => this.logOut()} href="/">Log Out</a> : <a style={{color: "#fefefe"}} onClick={() => this.logOut()} href="/">Log Out</a>
                                 }   
                             </Col>
                             <Col xs={4} sm={4} md={2} lg={2} style={{display: "flex", justifyContent: "center"}} className="headerLinks">

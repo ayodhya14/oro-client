@@ -18,7 +18,6 @@ class Login extends Component {
     };
 
     onSuccess = (res) => {
-        alert("12");
         //    console.log('[Login Success] currentUser:', res.profileObj);
         console.log(res.profileObj);
         // let name = res.profileObj.name;
@@ -42,7 +41,6 @@ class Login extends Component {
               });
               localStorage.setItem("userTokenORO", res.data.token);
               localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
-              console.log(localStorage.OROLoginUser);
               window.location.reload();
               window.location.href = "http://localhost:3000/";
           })
