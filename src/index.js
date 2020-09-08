@@ -24,5 +24,6 @@ ReactDOM.render(
     <Route exact path="/viewUserRegister" component={ViewUserRegister} />
     <Route exact path="/User Profile" component={TabView} />
     <Route exact path="/viewSingleProduct/:id" component={ViewSingleProduct} />
+    <Route exact path="/qr_generator" component={QrGenerator} />
   </BrowserRouter>,
  document.getElementById('root'));
