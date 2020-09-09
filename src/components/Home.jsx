@@ -22,7 +22,9 @@ function Home() {
             <div className = "mainProductListClass">
                 {
                     !(productId) ?
-                        <div><div className="mainSliderClass"><MainSlider /></div><div className="mainProductListClass"><ProductList term={term} onClick={(value) => setId(value)} /></div></div> :
+                        <div>
+                            <div className="mainSliderClass"><MainSlider />
+                        </div><div className="mainProductListClass"><ProductList term={term} onClick={(value) => setId(value)} /></div></div> :
                         <div className="SingleProductParentClass"><SingleProduct  id={productId} /> </div>
                 }
             </div>

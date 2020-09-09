@@ -20,8 +20,6 @@ class Footer extends Component{
                     <Col xs={2} sm={2} md={3} lg={3} className="headerLinks"style={{marginLeft: "5%" , marginTop: "3vh"}}>
                         <div>
                             <Image roundedCircle className="OROLogo" src="https://res.cloudinary.com/persystance-network/image/upload/v1597958481/slt/portal_user/1597958481008.jpg" alt="ORO Jewellers Main Logo" />
-                            <Badge style={{cursor: "pointer" }}><FaPaypal style={{ cursor: "pointer", width: "4vh", height: "4vh" }} />&nbsp;&nbsp;</Badge>
-                            <Badge style={{cursor: "pointer" }}><FaCreditCard style={{ cursor: "pointer", width: "4vh", height: "4vh" }} />&nbsp;&nbsp;</Badge>
                         </div>
                     </Col>
                     {/* Home, About Us, Branchers */}
@@ -29,7 +27,6 @@ class Footer extends Component{
                          <a style={{color: "#fefefe"}} className="link" href="/">
                             <h5>Home</h5>
                         </a>
-                        {/* <li><Link to="/Home"><h5>Home</h5></Link></li> */}
                         <a style={{color: "#fefefe"}} className="link" href="/">
                             <h5>About</h5>
                         </a>

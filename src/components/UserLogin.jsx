@@ -56,6 +56,20 @@ class UserLogin extends Component {
           localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
           window.location.reload();
           window.location.href = "http://localhost:3000/";
+   
+          if (res.status == 200){
+            alert("Success!");
+          }
+          else if(res.status == 400) {
+              alert("Invalid!");
+          }
+          else if(res.status == 401) {
+            alert("Already Exists!");
+          }
+          else if(res.status == 404) {
+            alert("Error!");
+          }
+
       })
     }
 
@@ -85,6 +99,7 @@ class UserLogin extends Component {
                       <Form.Label>Password</Form.Label>
                       <Form.Control value={this.state.password} onChange={this.onChangePassword} type="password" placeholder="Password" />
                     </Form.Group>
+
                     <Form.Group controlId="formBasicCheckbox">
                       <Form.Check
                         type="checkbox"
@@ -101,21 +116,21 @@ class UserLogin extends Component {
                     </div>
                     <br />
                     <Button
-                      variant="warning"
-                      type="submit"
-                      style={{ width: "100%" , fontSize: "18px"}}
-                      disabled={localStorage.recapture}
-                    >
-                      Login
+                        variant="warning"
+                        type="submit"
+                        style={{ width: "100%" , fontSize: "18px"}}
+                        disabled={localStorage.recapture}
+                      >
+                        Login
                     </Button>
                      
                     <div className="parentClassForAnqure">
-                    <a
-                      href="/ViewUserRegister"
-                      className="anquerTagNewUser"
-                    >
-                      Not Registered Yet? Click Here
-                    </a>
+                      <a
+                        href="/ViewUserRegister"
+                        className="anquerTagNewUser"
+                      >
+                        Not Registered Yet? Click Here
+                      </a>
                   </div>
                   <Row style={{ marginLeft: "48%", color: "#a4a0a7" }} className="mt-4 mb-4">
                       <div>

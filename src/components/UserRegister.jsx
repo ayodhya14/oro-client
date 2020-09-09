@@ -18,6 +18,7 @@ class UserRegister extends Component{
     constructor(props){
         super(props);
 
+// try{        
 //Bind User feilds to the Input form
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -90,7 +91,19 @@ submitUser = event => {
     axios.post(`http://localhost:5000/api/users/`, obj)
         .then(res => {
         console.log(res);
+
+        if (res.status == 200){
+            alert("success");
+        }
+        else{
+            alert("Error");
+        }
+        
     })
+
+    // } catch (e) {
+    //   alert("Error");
+//  }
 }
   render() {
     return (
@@ -126,11 +139,7 @@ submitUser = event => {
                                         <Form.Group as={Col}>
                                             
                                         <Form.Label>Gender</Form.Label>
-                                        <Form.Control  as="select" className = "from-control"  type="String" value={this.state.gender} onChange={this.onChangeGender}
-                                                // className="mr-sm-2"
-                                                // id="inlineFormCustomSelect"
-                                                // custom
-                                            >
+                                        <Form.Control  as="select" className = "from-control"  type="String" value={this.state.gender} onChange={this.onChangeGender}>
                                                 <option value="0">Choose...</option>
                                                 <option value="1">Male</option>
                                                 <option value="2">Female</option>
@@ -138,6 +147,7 @@ submitUser = event => {
                                         </Form.Control>
                                         </Form.Group>
                                     </Form.Row>
+
                                     <Form.Row>
                                         <Form.Group as={Col} md="8">
                                             <Form.Label>Address</Form.Label>

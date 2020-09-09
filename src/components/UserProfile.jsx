@@ -47,14 +47,9 @@ class UserProfile extends Component{
                                     />
                                 </Form.Group>
 
-                                <Form.Group as={Col}>
-                                    
+                                <Form.Group as={Col}>  
                                 <Form.Label>Gender</Form.Label>
-                                    <Form.Control  as="select"
-                                            className="mr-sm-2"
-                                            id="inlineFormCustomSelect"
-                                            custom
-                                    >
+                                    <Form.Control  as="select">
                                             <option value="0">Choose...</option>
                                             <option value="1">Male</option>
                                             <option value="2">Female</option>
