@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/Table';
 import { Card } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
+import axios from "axios";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import "./Login.scss";
@@ -16,6 +17,7 @@ class Checkout extends Component{
     constructor(props) {
         super(props)
         this.state = {
+            allOrders: [],
             price: "",
             qty: "",
             paymentType: "Payment Type",
@@ -121,6 +123,24 @@ class Checkout extends Component{
             </div>
         );
     
+    }
+    async componentDidMount(){
+       
+        let { data } = await axios.get("http://localhost:5000/api/orders");
+        console.log(data);
+        let orders = data.filter(order => {
+            return order.userId === localStorage.OROLoginUser.id;
+        }).map((order) => {
+            return {
+                userId: order.userId,
+                products: order.products,
+                totQty: order.totQty,
+                subTotal: order.subTotal,
+                total: order.total,
+                date: order.date,
+            };
+        });
+        this.setState({ allOrders: orders });
     }
 }
 export default Checkout;
