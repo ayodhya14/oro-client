@@ -88,14 +88,23 @@ class UserRegister extends Component {
             obj.mobile = "+94" + obj.mobile;
         }
 
-        axios.post(`http://localhost:5000/api/users/`, obj)
-            .then(res => {
-                console.log(res);
-                if (res.status == 200) {
-                    this.setState({ id: res.data._id });
-                }
-            })
+        try{
+            axios.post(`http://localhost:5000/api/users/`, obj)
+                .then(res => {
+                    console.log(res);
+                    if (res.status == 200) {
+                        this.setState({ id: res.data._id });
+                    }
+            if (res.status == 200){
+                alert("Success!");
+            }
+          });
+        } catch(err){
+            alert("Error!");
+            console.log(err);
+        } 
     }
+
     render() {
         if (this.state.id) {
             // redirect to home if signed up

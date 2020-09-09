@@ -47,30 +47,26 @@ class UserLogin extends Component {
         password: this.state.password,
         loginWithGoogle: false
       };
-      axios.post(`http://localhost:5000/api/auth`, obj)
-        .then(res => {
-          this.setState({
-            token: res.data.token
-          });
-          localStorage.setItem("userTokenORO", res.data.token);
-          localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
-          window.location.reload();
-          window.location.href = "http://localhost:3000/";
-   
-          if (res.status == 200){
-            alert("Success!");
-          }
-          else if(res.status == 400) {
-              alert("Invalid!");
-          }
-          else if(res.status == 401) {
-            alert("Already Exists!");
-          }
-          else if(res.status == 404) {
-            alert("Error!");
-          }
 
-      })
+      try{
+        axios.post(`http://localhost:5000/api/auth`, obj)
+          .then(res => {
+            this.setState({
+              token: res.data.token
+            });
+            localStorage.setItem("userTokenORO", res.data.token);
+            localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
+            window.location.reload();
+            window.location.href = "http://localhost:3000/";
+            
+              if (res.status == 200){
+                alert("Success!");
+              }
+          });
+        } catch(err){
+            alert("Error!");
+            console.log(err);
+        } 
     }
 
   render() {
