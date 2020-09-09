@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-import { FaPaypal } from "react-icons/fa";
-import { FaCreditCard } from "react-icons/fa";
-import Badge from 'react-bootstrap/Badge';
+
 // import { Link } from 'react-router';
 
 class Footer extends Component{
