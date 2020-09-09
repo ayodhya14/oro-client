@@ -155,8 +155,8 @@ class Checkout extends Component{
                                 <div>
                                     <h6 className="cardHeadigClass">Payment Type</h6>
                                     <DropdownButton variant="secondary" id="dropdown-item-button" title={this.state.paymentType} style={{marginLeft: "8px"}}>
-                                        <Dropdown.Item onClick={() => this.handlePaymentType("PayPal")} as="button">PayPal</Dropdown.Item>
-                                        <Dropdown.Item onClick={() => this.handlePaymentType("Credit Card")} as="button">Credit Card</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => this.handlePaymentType("Cash on Delivery")} as="button">PayPal</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => this.handlePaymentType("Pick up")} as="button">Credit Card</Dropdown.Item>
                                     </DropdownButton>
                                 </div>
                                 <br />
