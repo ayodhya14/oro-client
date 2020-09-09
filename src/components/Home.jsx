@@ -11,9 +11,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import SingleProduct from "./SingleProduct";
 
-function Home() {
+function Home(props) {
     let [term, setTerm] = useState('');
     let [productId, setId] = useState('');
+    useEffect(() => {
+       console.log(props);
+      });
+    
     return (
         <div className="homePage_parentDiv">
             <div className="mainHeaderClass">
@@ -22,7 +26,7 @@ function Home() {
             <div className = "mainProductListClass">
                 {
                     !(productId) ?
-                        <div><div className="mainSliderClass"><MainSlider /></div><div className="mainProductListClass"><ProductList term={term} onClick={(value) => setId(value)} /></div></div> :
+                        <div><div className="mainSliderClass"><MainSlider /></div><div className="mainProductListClass"><ProductList term={term}  onClick={(value) => setId(value)} /></div></div> :
                         <div className="SingleProductParentClass"><SingleProduct  id={productId} /> </div>
                 }
             </div>

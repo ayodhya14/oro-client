@@ -9,7 +9,7 @@ class Product extends Component {
         this.state = {
             productId: this.props.product.id,
             cartItemIds: [],
-            quantity: 1,
+            quantity: 1
         };
     }
 

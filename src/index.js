@@ -12,12 +12,13 @@ import ViewSingleProduct from './components/ViewSingleProduct.jsx';
 import MapView from './components/MapView.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home.jsx';
 
  {/* This line can be included in your src/index.js or App.js file*/}
 
 ReactDOM.render(
   <BrowserRouter>
-    <Route exact path="/" component={Jewellery} />
+    <Route exact path="/" render={(props) => <Home {...props}/>} component={Jewellery} />
     <Route exact path="/viewCart" component={ViewCart} />
     <Route exact path="/viewCheckout" component={ViewCheckout} />
     <Route exact path="/viewUserLogin" component={ViewUserLogin} />
