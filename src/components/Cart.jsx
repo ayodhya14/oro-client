@@ -101,16 +101,12 @@ class Cart extends Component {
                         <Col xs={12} sm={12} md={8} lg={8}>
                             <div className="headingClass">
                                 <h4> Shopping Cart </h4>
-                                
                             </div>
                             <div>
                                 <Table responsive="sm">
-                                
                                     {this.state.tableData.map((item, index) => {
                                         return (
-
                                             <tbody key={index}>
-
                                                 <tr>
                                                     <td className="tableBodyData">{index + 1}</td>
                                                     <td>
@@ -126,7 +122,6 @@ class Cart extends Component {
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                       
                                         );
                                     })}
                                 </Table>
@@ -165,13 +160,10 @@ class Cart extends Component {
                                 </div>
                             </Card>
                         </Col>
-
                     </Row>
                 </Card>
-
             </div>
         );
-
     }
 }
 export default Cart;

@@ -84,7 +84,7 @@ class Header extends Component{
                                 <a style={{color: "#fefefe"}} href="/User Profile" >User Profile</a>
                             </Col>
                             <Col xs={4} sm={4} md={8} lg={8} className="headerLinks"></Col>
-                            <Col>{ localStorage.getItem("username")}</Col>
+                            {/* <Col>{ localStorage.getItem("username")}</Col> */}
                         </Row>
                     </Col>
                 </Row>
