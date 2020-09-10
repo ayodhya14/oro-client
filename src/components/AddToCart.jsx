@@ -46,6 +46,7 @@ import axios from "axios";
         super(props);
         this.state = {quantity: 1}
       }
+
       handleInputChange = event => 
           this.setState({[event.target.name]: event.target.value})
       addToCart = () => {
@@ -61,6 +62,7 @@ import axios from "axios";
         }
         localStorage.setItem('cart', JSON.stringify(cart));
       }
+      
       render(){
         const { product } = this.props;
         return (

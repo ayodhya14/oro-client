@@ -47,7 +47,7 @@ class Product extends Component {
                     <h5 className="card-title">{this.props.product.productType}</h5>
                         <img className="card-img productImg" src={this.props.product.imageUrl} alt="Product Image"/>
                     <div className="centerClass" >
-                        <h5 className="cardProductName" onClick ={(event)=> this.props.onClick(this.props.product.id)}><a style={{color: "rgba(238, 135, 0, 0.87)"}} href={"/viewSingleProduct/" + this.props.product.id}>{this.props.product.name}</a></h5>
+                        <h5 className="cardProductName" onClick ={(event)=> localStorage.setItem('myData', this.props.product.id)}><a style={{color: "rgba(238, 135, 0, 0.87)"}} href={"/viewSingleProduct/" + this.props.product.id}>{this.props.product.name}</a></h5>
                     </div>
                     <div className="centerClass">
                         <h6 className="card-title">Rs.{this.props.product.unitPrice}</h6>
