@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form'
-
+import Product from './Product';
 import axios from "axios";
 
 class SingleProduct extends Component{
@@ -16,6 +16,36 @@ class SingleProduct extends Component{
       product :{}
     }
   };
+
+
+  onClickAddToCartItem = () => {
+    let productIdValue = localStorage.getItem('myData');
+    // alert(productId);
+    let cartItem = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : {};
+    let productId = productIdValue;
+    cartItem[productId] = (cartItem[productId] ? cartItem[productId]: 0);
+    let qty = cartItem[productId] + parseInt(this.state.quantity);
+    if (this.state.product.availableQty < qty) {
+        cartItem[productId] = this.state.product.availableQty; 
+    } else {
+        cartItem[productId] = qty
+    }
+    localStorage.setItem('cartItems', JSON.stringify(cartItem));
+    let val = localStorage.getItem('cartItems').split(",");
+    val[0] = val[0].replace("{", "");
+    val[val.length - 1] = val[val.length - 1].replace("}", "");
+    for (let x = 0; x < val.length; x++) {
+        let obj = {
+            id: "",
+            qty: ""
+        }
+        obj.id = val[x].split(":")[0];
+        obj.qty = val[x].split(":")[1];
+        val[x] = obj;
+    }
+    localStorage.setItem('cartItemsLength', val.length);
+    window.location.reload();
+}
 
   render() {
     return (
@@ -57,7 +87,7 @@ class SingleProduct extends Component{
                   </Form>  
                 </Card.Body>
                   <div className = "Add to Cart" >
-                        <a href = "/" className = "btn btn-warning" onClick={this.viewCart} style = {{width: "23rem"}}>Add to Cart</a>
+                        <a  className = "btn btn-warning" onClick={() => this.onClickAddToCartItem()} style = {{width: "23rem"}}>Add to Cart</a>
                   </div> 
                   <br/>
                   <div className = "View Cart" >
