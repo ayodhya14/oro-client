@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form'
 import Product from './Product';
 import axios from "axios";
+import { useState } from "react";
 
 class SingleProduct extends Component{
 
@@ -13,12 +14,17 @@ class SingleProduct extends Component{
     super(props);
     this.state = {
       productId : this.props.id,
-      product :{}
+      product :{},
+      quantity: 1,
+     
     }
+    
   };
 
 
   onClickAddToCartItem = () => {
+    // alert(this.state.quantity);
+    // this.setState({quantity:this.state.qty});
     let productIdValue = localStorage.getItem('myData');
     // alert(productId);
     let cartItem = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : {};
@@ -28,7 +34,7 @@ class SingleProduct extends Component{
     if (this.state.product.availableQty < qty) {
         cartItem[productId] = this.state.product.availableQty; 
     } else {
-        cartItem[productId] = qty
+        cartItem[productId] = qty;
     }
     localStorage.setItem('cartItems', JSON.stringify(cartItem));
     let val = localStorage.getItem('cartItems').split(",");
@@ -47,6 +53,11 @@ class SingleProduct extends Component{
     window.location.reload();
 }
 
+onTodoChange(value){
+  this.setState({
+       quantity: value
+  });
+}
   render() {
     return (
       <div className = "SingleProductParentClass">
@@ -81,7 +92,7 @@ class SingleProduct extends Component{
                   <Form.Row>
                     <Form.Group as={Col} md="4">
                         <Form.Label><b>Quantity</b></Form.Label>
-                        <Form.Control placeholder="0" className = "from-control"  type="Number" value={this.state.qty} onChange={this.onChangeAddress}/>
+                        <Form.Control placeholder="0" className = "from-control"  type="Number" value={this.state.quantity} onChange={e => this.onTodoChange(e.target.value)}/>
                     </Form.Group>
                   </Form.Row>
                   </Form>  
