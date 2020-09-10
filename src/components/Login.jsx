@@ -61,8 +61,8 @@ class Login extends Component {
             id: res.id,
             name: res.name,
             email: res.email,
-            loginWithGoogle: true
-            // loginType: "Facebook"
+            loginWithGoogle: true,
+            loginType: "Facebook"
         }
         
         axios.post(`http://localhost:5000/api/auth`, obj)
