@@ -142,6 +142,9 @@ class UserProfile extends Component {
         );
     }
     async componentDidMount() {
+        this.setData();
+    }
+    async setData(){
         let user = JSON.parse(localStorage.OROLoginUser);
         let id = user.id;
   
