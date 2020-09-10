@@ -89,7 +89,6 @@ class Cart extends Component {
 
     viewCheckout() {
         alert('Are you sure you want to Checkout?');
-        // <Checkout />
     }
 
     render() {
