@@ -34,6 +34,7 @@ class Header extends Component{
         localStorage.removeItem("OROLoginUser");
         localStorage.removeItem("cartItems");
         localStorage.removeItem("username");
+        localStorage.removeItem("cartItemsLength");
     }
 
     // login = event => {

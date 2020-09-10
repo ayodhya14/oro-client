@@ -9,7 +9,7 @@ import Table from 'react-bootstrap/Table';
 import { Card } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-
+import axios from "axios";
 import Checkout from "./Checkout";
 import "./Cart.scss";
 import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
@@ -21,51 +21,16 @@ class Cart extends Component {
         this.state = {
             price: "",
             qty: "",
-            cartItemsArray: [],
-            tableData: [
-                {
-                    image: "https://ae01.alicdn.com/kf/HTB1.AgdajzuK1RjSspeq6ziHVXaS/Rhinestone-Happy-Family-Ring-Mother-Father-Girl-Boy-Design-Rings-for-Family-Merry-Christmas-New-Year.jpg_960x960.jpg",
-                    name: "Gold Family Ring",
-                    price: 10000,
-                    subTotal: 20000,
-                    qty: 2
-                },
-                {
-                    image: "https://i.pinimg.com/originals/eb/95/d3/eb95d3eafbf6d85ec230c13eedcbd8db.png",
-                    name: "Pin on Women jewelry",
-                    price: 3000,
-                    subTotal: 3000,
-                    qty: 1
-                },
-                {
-                    image: "https://i.pinimg.com/originals/e6/22/25/e62225dca0d44d7470714dbb6b4105b5.jpg",
-                    name: "Natural Russian Copper Charoite Gemstone Silver Tone Fine Jewelry",
-                    price: 15000,
-                    subTotal: 45000,
-                    qty: 3
-                },
-
-            ]
+            tableData: []
         };
     }
 
     calculatePayment = () => {
-        let price = 0;
-        let qty = 0;
-
-        for (let x = 0; x < this.state.tableData.length; x++) {
-            price = this.state.tableData[x].subTotal + price;
-            qty = this.state.tableData[x].qty + qty;
-        }
-        this.setState({
-            price: price,
-            qty: qty,
-        });
         this.handleCartItems();
     };
 
     // handle the locle storage cart items array function.
-    handleCartItems = () => {
+    async handleCartItems() {
         let val = localStorage.getItem('cartItems').split(",");
         val[0] = val[0].replace("{", "");
         val[val.length - 1] = val[val.length - 1].replace("}", "");
@@ -75,15 +40,68 @@ class Cart extends Component {
                 qty: ""
             }
             obj.id = val[x].split(":")[0];
+            obj.id = obj.id.split('"')[1];
             obj.qty = val[x].split(":")[1];
             val[x] = obj;
         }
-        this.state.cartItemsArray = val;
-        console.log(this.state.cartItemsArray);
+        let { data } = await axios.get(`http://localhost:5000/api/products`);
+        let products = data.map((product) => {
+            return {
+                id: product._id,
+                productType: product.productType,
+                imageUrl: product.imageUrl,
+                description: product.description,
+                availableQty: product.availableQty,
+                unitPrice: product.unitPrice,
+                name: product.name,
+            };
+        });
+        let array = [];
+        let price = 0;
+        for (let x = 0; x < val.length; x++) {
+            for (let y = 0; y < products.length; y++) {
+                if (val[x].id === products[y].id) {
+                    products[y].qtyCount = parseInt(val[x].qty);
+                    products[y].subTotal = products[y].qtyCount*products[y].unitPrice;
+                    price = price + products[y].subTotal;
+                    array.push(products[y]);
+                }
+            }
+        }
+        this.setState({ tableData: array });
+        this.setState({ price: price });
     }
 
-    onClickRemoveItem = (id) => {
-        alert(id);
+    onClickRemoveItem = (id, index) => {
+        for (let x = 0; x < this.state.tableData.length; x++) {
+            if (this.state.tableData[x].id === id && index === x) {
+                this.state.tableData.splice(index, 1);
+                this.setState({ tableData: this.state.tableData });
+            }
+        }
+        let value = localStorage.getItem('cartItems').split(id)[0];
+        let value2 = localStorage.getItem('cartItems').split(id)[1];
+        let value3 = value2.split(",");
+        let str = "";
+        for (let z = 1; z < value3.length; z++) {
+            if (str !== "") {
+                str = str + "," + value3[z];
+            } else {
+                str = str + value3[z];
+            }
+        }
+        if (value3.length === 1) {
+            str = "}";
+        }
+        str = value + str;
+        if (str.includes('{""')) {
+            str = str.replace('{""', '{"');
+        } else if (str.includes(',"}')) {
+            str = str.replace(',"}', '}');
+        }
+        localStorage.setItem('cartItems',str);
+        localStorage.setItem('cartItemsLength',this.state.tableData.length);
+        this.handleCartItems();
     };
 
 
@@ -110,15 +128,15 @@ class Cart extends Component {
                                                 <tr>
                                                     <td className="tableBodyData">{index + 1}</td>
                                                     <td>
-                                                        <a href="/ViewSingleProduct"><Image className="cartProductImage" src={item.image} alt="Selected Product" thumbnail /></a>
+                                                        <a href="/ViewSingleProduct"><Image className="cartProductImage" src={item.imageUrl} alt="Selected Product" thumbnail /></a>
                                                     </td>
                                                     <td className="tableBodyData">{item.name}<a href="/ViewSingleProduct"></a></td>
                                                     {/* need color change to black */}
-                                                    <td className="tableBodyData" style={{ color: "black" }}>{item.qty}</td>
-                                                    <td className="tableBodyData">Rs.{item.price}</td>
+                                                    <td className="tableBodyData" style={{ color: "black" }}>{item.qtyCount}</td>
+                                                    <td className="tableBodyData">Rs.{item.unitPrice}</td>
                                                     <td className="tableBodyData">Rs.{item.subTotal}</td>
                                                     <td className="tableBodyData">
-                                                        <Button onClick={() => this.onClickRemoveItem(index)} className="buttonClass" variant="outline-danger"><FaTrashAlt /></Button>
+                                                        <Button onClick={() => this.onClickRemoveItem(item.id, index)} className="buttonClass" variant="outline-danger"><FaTrashAlt /></Button>
                                                     </td>
                                                 </tr>
                                             </tbody>
