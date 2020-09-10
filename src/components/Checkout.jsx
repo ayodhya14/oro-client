@@ -67,8 +67,6 @@ class Checkout extends Component{
     });
     }
 
-
-
     calculateTotalPayment = () => {
         let price = 0;
         // let qty = 0;
@@ -80,10 +78,6 @@ class Checkout extends Component{
             price: price,
             // qty: qty
         });
-    };
-
-    onClickRemoveItem = (id) => {
-        alert(id);
     };
 
     handlePaymentType = (str) => {
