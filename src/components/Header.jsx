@@ -37,10 +37,6 @@ class Header extends Component{
         localStorage.removeItem("cartItemsLength");
     }
 
-    // login = event => {
-    //     window.location.href = "http://localhost:3000/ViewUserLogin";
-    // }
-    
     render() {
         return (
             <div className="headerParentClass">

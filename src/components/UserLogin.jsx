@@ -47,16 +47,26 @@ class UserLogin extends Component {
         password: this.state.password,
         loginWithGoogle: false
       };
-      axios.post(`http://localhost:5000/api/auth`, obj)
-        .then(res => {
-          this.setState({
-            token: res.data.token
+
+      try{
+        axios.post(`http://localhost:5000/api/auth`, obj)
+          .then(res => {
+            this.setState({
+              token: res.data.token
+            });
+            localStorage.setItem("userTokenORO", res.data.token);
+            localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
+            window.location.reload();
+            window.location.href = "http://localhost:3000/";
+            
+              if (res.status == 200){
+                alert("Success!");
+              }
           });
-          localStorage.setItem("userTokenORO", res.data.token);
-          localStorage.setItem("OROLoginUser", JSON.stringify(res.data));
-          window.location.reload();
-          window.location.href = "http://localhost:3000/";
-      })
+        } catch(err){
+            alert("Error!");
+            console.log(err);
+        } 
     }
 
   render() {
@@ -85,6 +95,7 @@ class UserLogin extends Component {
                       <Form.Label>Password</Form.Label>
                       <Form.Control value={this.state.password} onChange={this.onChangePassword} type="password" placeholder="Password" />
                     </Form.Group>
+
                     <Form.Group controlId="formBasicCheckbox">
                       <Form.Check
                         type="checkbox"
@@ -101,21 +112,21 @@ class UserLogin extends Component {
                     </div>
                     <br />
                     <Button
-                      variant="warning"
-                      type="submit"
-                      style={{ width: "100%" , fontSize: "18px"}}
-                      disabled={localStorage.recapture}
-                    >
-                      Login
+                        variant="warning"
+                        type="submit"
+                        style={{ width: "100%" , fontSize: "18px"}}
+                        disabled={localStorage.recapture}
+                      >
+                        Login
                     </Button>
                      
                     <div className="parentClassForAnqure">
-                    <a
-                      href="/ViewUserRegister"
-                      className="anquerTagNewUser"
-                    >
-                      Not Registered Yet? Click Here
-                    </a>
+                      <a
+                        href="/ViewUserRegister"
+                        className="anquerTagNewUser"
+                      >
+                        Not Registered Yet? Click Here
+                      </a>
                   </div>
                   <Row style={{ marginLeft: "48%", color: "#a4a0a7" }} className="mt-4 mb-4">
                       <div>
