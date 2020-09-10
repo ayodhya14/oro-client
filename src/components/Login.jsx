@@ -31,7 +31,7 @@ class Login extends Component {
             lastName: res.profileObj.familyName,
             googleId: res.profileObj.googleId,
             email: res.profileObj.email,
-            loginWithGoogle: true
+            loginType: "Google"
           };
           
           axios.post(`http://localhost:5000/api/auth`, obj)
@@ -62,6 +62,7 @@ class Login extends Component {
             name: res.name,
             email: res.email,
             loginWithGoogle: true
+            // loginType: "Facebook"
         }
         
         axios.post(`http://localhost:5000/api/auth`, obj)

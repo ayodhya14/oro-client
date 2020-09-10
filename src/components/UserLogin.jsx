@@ -45,7 +45,7 @@ class UserLogin extends Component {
       const obj = {
         email: this.state.email,
         password: this.state.password,
-        loginWithGoogle: false
+        loginType: "Normal"
       };
 
       try{
